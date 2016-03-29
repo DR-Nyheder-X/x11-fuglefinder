@@ -1,0 +1,1 @@
+<%= link "Sightings", to: sighting_path(@conn, :index) %>

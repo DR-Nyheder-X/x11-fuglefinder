@@ -1,0 +1,6 @@
+<h2>New sighting</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: sighting_path(@conn, :create) %>
+
+<%= link "Back", to: sighting_path(@conn, :index) %>

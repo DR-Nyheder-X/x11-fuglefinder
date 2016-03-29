@@ -1,0 +1,18 @@
+<h2>Show sighting</h2>
+
+<ul>
+
+  <li>
+    <strong>Lat:</strong>
+    <%= @sighting.lat %>
+  </li>
+
+  <li>
+    <strong>Lng:</strong>
+    <%= @sighting.lng %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: sighting_path(@conn, :edit, @sighting) %>
+<%= link "Back", to: sighting_path(@conn, :index) %>
