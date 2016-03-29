@@ -1,5 +1,23 @@
+import 'babel-polyfill'
+
+import { attach } from 'fastclick'
+attach(document.body)
+
 import React from 'react'
 import { render } from 'react-dom'
-import Root from './Root'
+import { Provider } from 'react-redux'
+import { Router, browserHistory } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
 
-render(<Root />, document.getElementById('root'))
+import configureStore from './store'
+const store = configureStore()
+const history = syncHistoryWithStore(browserHistory, store)
+
+import routes from './routes'
+
+render(
+  <Provider store={store}>
+    <Router history={history} routes={routes} />
+  </Provider>,
+  document.getElementById('root')
+)
