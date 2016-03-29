@@ -6,7 +6,14 @@ defmodule Birdie.SightingController do
   plug :scrub_params, "sighting" when action in [:create, :update]
 
   def index(conn, _params) do
-    sightings = Repo.all(Sighting)
+    query = from s in Sighting,
+      select: s,
+      order_by: fragment("earth_distance(ll_to_earth(?, ?), ll_to_earth(?, ?))",
+                         55.660211, 12.590790, s.lat, s.lng),
+      limit: 10
+
+    sightings = Repo.all(query)
+
     render(conn, "index.html", sightings: sightings)
   end
 
