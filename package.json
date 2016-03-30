@@ -1,5 +1,8 @@
 {
   "private": true,
+  "scripts": {
+    "lint": "$(npm bin)/standard \"web/static/js/**/*.js\""
+  },
   "dependencies": {
     "autoprefixer": "^6.3.5",
     "babel-core": "^6.7.4",
