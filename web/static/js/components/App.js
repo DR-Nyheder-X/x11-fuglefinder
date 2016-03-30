@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { register } from '../store'
+import { resolve } from 'redux-simple-promise'
 import './App.css'
 import Api from '../Api'
 
@@ -17,12 +18,20 @@ const initialState = {
 }
 
 export function reducer (state = initialState, action) {
-  return state
+  switch (action.type) {
+    case resolve(FETCH_CURRENT_USER): return {
+      ...state,
+      current_user: action.payload.user
+    }
+
+    default: return state
+  }
 }
 
 register({ app: reducer })
 
 const stateToProps = (state) => ({
+  user: state.app.current_user
 })
 
 class App extends Component {
@@ -35,9 +44,16 @@ class App extends Component {
   }
 
   render () {
+    const { user, children } = this.props
+
+    if (!user) {
+      return <div>&hellip;</div>
+    }
+
     return <div className='App'>
       <h5>Appediapp</h5>
-      {this.props.children}
+      {children}
+      {JSON.stringify(user)}
     </div>
   }
 }
