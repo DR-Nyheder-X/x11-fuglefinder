@@ -36,7 +36,8 @@ if (dev) {
 var hot = 'webpack-hot-middleware/client?path=' +
   publicPath + '__webpack_hmr'
 var entry = {
-  index: './web/static/js/index.js'
+  index: './web/static/js/index.js',
+  admin: './web/static/js/admin.js'
 }
 
 module.exports = {

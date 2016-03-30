@@ -12,7 +12,10 @@ export default class Api {
     const token = Api.storage.getItem(tokenKey)
 
     if (token) {
-      return Api.get('/current_user')
+      return Api.get('/current_user').then(null, (_err) => {
+        Api.storage.removeItem(tokenKey)
+        return Api.fetchCurrentUser()
+      })
     } else {
       return Api.post('/current_user').then(saveToken)
     }

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import { register } from '../store'
 import { resolve } from 'redux-simple-promise'
 import './App.css'
@@ -51,9 +52,9 @@ class App extends Component {
     }
 
     return <div className='App'>
-      <h5>Appediapp</h5>
+      <h5><Link to='/'>Appediapp</Link></h5>
+      <Link to='/kitchensink'>Ketchupsink</Link>
       {children}
-      {JSON.stringify(user)}
     </div>
   }
 }

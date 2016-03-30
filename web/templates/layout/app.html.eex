@@ -8,14 +8,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="<%= static_path(@conn, "/apple-touch-icon.png") %>">
     <title>Fugle</title>
+    <link rel='stylesheet' href='<%= static_path(@conn, "/admin.css") %>' />
   </head>
-
   <body>
     <%= render @view_module, @view_template, assigns %>
     <%= if Mix.env == :dev do %>
-      <script src='//localhost:4001/index.bundle.js'></script>
+      <script src='//localhost:4001/admin.bundle.js'></script>
     <% else %>
-      <script src='<%= static_path(@conn, "/index.bundle.js") %>'></script>
+      <script src='<%= static_path(@conn, "/admin.bundle.js") %>'></script>
     <% end %>
   </body>
 </html>
