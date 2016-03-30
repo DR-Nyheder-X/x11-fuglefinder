@@ -11,10 +11,7 @@
   </head>
 
   <body>
-    <main role='main' id='main'>
-      <%= render @view_module, @view_template, assigns %>
-    </main>
-
+    <%= render @view_module, @view_template, assigns %>
     <%= if Mix.env == :dev do %>
       <script src='//localhost:4001/index.bundle.js'></script>
     <% else %>

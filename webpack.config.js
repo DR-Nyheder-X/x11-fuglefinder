@@ -1,5 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
+
 var publicPath = 'http://localhost:4001/'
 
 var env = process.env.MIX_ENV || 'dev'
@@ -17,7 +19,10 @@ var plugins = [
     __PROD: prod,
     __DEV: dev
   }),
-  new webpack.optimize.OccurenceOrderPlugin()
+  new webpack.optimize.OccurenceOrderPlugin(),
+  new CopyWebpackPlugin([
+    { from: 'web/static/assets', to: '.' }
+  ])
 ]
 
 if (dev) {
@@ -43,7 +48,7 @@ module.exports = {
     return entries
   }, {}),
   output: {
-    path: path.resolve(__dirname, 'priv/static/js'),
+    path: path.resolve(__dirname, 'priv/static'),
     filename: '[name].bundle.js',
     publicPath: publicPath
   },

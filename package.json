@@ -12,6 +12,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "classname": "0.0.0",
+    "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.1",
     "fastclick": "^1.0.6",
     "isomorphic-fetch": "^2.2.1",
