@@ -26,7 +26,7 @@ defmodule Birdie.Router do
     resources "/sightings", SightingController
     resources "/users", UserController
 
-    get "/", PageController, :index
+    get "/*path", PageController, :index
   end
 
   # Other scopes may use custom stacks.

@@ -1,3 +1,30 @@
+$background-color: pink;
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
-  background: pink;
+  overflow: hidden;
+  background-color: $background-color;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
