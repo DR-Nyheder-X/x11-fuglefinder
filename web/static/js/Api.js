@@ -20,7 +20,6 @@ export default class Api {
 
   static get (path) {
     const opts = { method: 'get', headers: {} }
-
     setTokenHeader(opts)
 
     log('GET', { path, opts })
@@ -30,8 +29,9 @@ export default class Api {
 
   static post (path, data) {
     const opts = { method: 'post', headers: {} }
-
     setTokenHeader(opts)
+
+    if (data) { opts.body = JSON.stringify(data) }
 
     log('POST', { path, opts })
 
