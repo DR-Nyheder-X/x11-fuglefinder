@@ -29,6 +29,10 @@ defmodule Birdie.ConnCase do
 
       # The default endpoint for testing
       @endpoint Birdie.Endpoint
+
+      def sign_in conn, user do
+        put_req_header(conn, "authentication", "Bearer #{user.token}")
+      end
     end
   end
 

@@ -1,13 +1,13 @@
 /* global __DEV */
-const log = require('debug')('bundle:store')
+const log = require('debug')('store')
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import promise from 'redux-simple-promise'
 import { routerReducer as routing } from 'react-router-redux'
 
 const reducers = { routing }
-export function register (reducer, name) {
-  log('registering reducer "%s"', name)
-  reducers[name] = reducer
+export function register (obj) {
+  log('registering reducer(s) "%s"', Object.keys(obj).join(', '))
+  Object.assign(reducers, obj)
 }
 
 export default function configureStore () {

@@ -1,0 +1,26 @@
+{
+  "web/controllers/*.ex": {
+    "command": "controller",
+    "alternate": "test/controllers/{}_test.exs"
+  },
+  "web/models/*.ex": {
+    "command": "model",
+    "alternate": "test/models/{}_test.exs"
+  },
+  "web/views/*.ex": {
+    "command": "view"
+  },
+  "web/templates/*.eex": {
+    "command": "template"
+  },
+  "lib/*.ex": {
+    "command": "lib",
+    "alternate": "test/{}_test.exs"
+  },
+  "test/*_test.exs": {
+    "command": "test",
+    "template": [ "defmodule {camelcase|dot}Test do", "  use ExUnit.Case", "", "end" ],
+    "alternate": "web/{}.ex"
+  },
+  "mix.exs": { "command": "mix" }
+}
