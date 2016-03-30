@@ -15,7 +15,7 @@
     <%= if Mix.env == :dev do %>
       <script src='//localhost:4001/index.bundle.js'></script>
     <% else %>
-      <script src='<%= static_path(@conn, "/js/index.bundle.js") %>'></script>
+      <script src='<%= static_path(@conn, "/index.bundle.js") %>'></script>
     <% end %>
   </body>
 </html>
