@@ -1,0 +1,6 @@
+<h2>Edit habitat</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: admin_habitat_path(@conn, :update, @habitat) %>
+
+<%= link "Back", to: admin_habitat_path(@conn, :index) %>

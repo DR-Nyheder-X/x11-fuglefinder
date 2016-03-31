@@ -25,6 +25,8 @@ defmodule Birdie.Router do
 
     resources "/sightings", SightingController
     resources "/users", UserController
+    resources "/birds", BirdController
+    resources "/habitats", HabitatController
   end
 
   scope "/", Birdie do

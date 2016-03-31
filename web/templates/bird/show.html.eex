@@ -1,0 +1,18 @@
+<h2>Show bird</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @bird.name %>
+  </li>
+
+  <li>
+    <strong>Fact:</strong>
+    <%= @bird.fact %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: admin_bird_path(@conn, :edit, @bird) %>
+<%= link "Back", to: admin_bird_path(@conn, :index) %>

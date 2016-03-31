@@ -1,0 +1,28 @@
+<h2>Listing birds</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Fact</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for bird <- @birds do %>
+    <tr>
+      <td><%= bird.name %></td>
+      <td><%= bird.fact %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: admin_bird_path(@conn, :show, bird), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: admin_bird_path(@conn, :edit, bird), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: admin_bird_path(@conn, :delete, bird), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New bird", to: admin_bird_path(@conn, :new) %>
