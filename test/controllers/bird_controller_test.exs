@@ -2,7 +2,8 @@ defmodule Birdie.BirdControllerTest do
   use Birdie.ConnCase
 
   alias Birdie.Bird
-  @valid_attrs %{fact: "some content", name: "some content"}
+
+  @valid_attrs %{fact: "some content", name: "some content", latin_name: "A", wikipedia_url: "B", rarity: 1, size: "s"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
