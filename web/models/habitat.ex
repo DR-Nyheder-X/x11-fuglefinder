@@ -4,6 +4,8 @@ defmodule Birdie.Habitat do
   schema "habitats" do
     field :name, :string
 
+    many_to_many :birds, Birdie.Bird, join_through: "birds_habitats"
+
     timestamps
   end
 
