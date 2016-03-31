@@ -13,24 +13,23 @@ defmodule Birdie.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api/v1", as: "api_v1", alias: Birdie do
+  scope "/api/v1", Birdie, as: "api_v1" do
     pipe_through :api
 
     post "/current_user", Api.V1.CurrentUserController, :create
     get "/current_user", Api.V1.CurrentUserController, :show
   end
 
-  scope "/", Birdie do
-    pipe_through :browser # Use the default browser stack
+  scope "/admin", Birdie, as: "admin" do
+    pipe_through :browser
 
     resources "/sightings", SightingController
     resources "/users", UserController
+  end
+
+  scope "/", Birdie do
+    pipe_through :browser
 
     get "/*path", PageController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", Birdie do
-  #   pipe_through :api
-  # end
 end
