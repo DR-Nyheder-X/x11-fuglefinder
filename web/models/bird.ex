@@ -10,6 +10,7 @@ defmodule Birdie.Bird do
     field :size, :string
 
     belongs_to :habitat, Birdie.Habitat
+    many_to_many :habitats, Birdie.Habitat, join_through: "birds_habitats"
 
     timestamps
   end
