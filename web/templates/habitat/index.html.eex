@@ -1,0 +1,26 @@
+<h2>Listing habitats</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for habitat <- @habitats do %>
+    <tr>
+      <td><%= habitat.name %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: admin_habitat_path(@conn, :show, habitat), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: admin_habitat_path(@conn, :edit, habitat), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: admin_habitat_path(@conn, :delete, habitat), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New habitat", to: admin_habitat_path(@conn, :new) %>
