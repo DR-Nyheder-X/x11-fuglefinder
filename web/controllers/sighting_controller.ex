@@ -29,7 +29,7 @@ defmodule Birdie.SightingController do
       {:ok, _sighting} ->
         conn
         |> put_flash(:info, "Sighting created successfully.")
-        |> redirect(to: sighting_path(conn, :index))
+        |> redirect(to: admin_sighting_path(conn, :index))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -54,7 +54,7 @@ defmodule Birdie.SightingController do
       {:ok, sighting} ->
         conn
         |> put_flash(:info, "Sighting updated successfully.")
-        |> redirect(to: sighting_path(conn, :show, sighting))
+        |> redirect(to: admin_sighting_path(conn, :show, sighting))
       {:error, changeset} ->
         render(conn, "edit.html", sighting: sighting, changeset: changeset)
     end
@@ -69,6 +69,6 @@ defmodule Birdie.SightingController do
 
     conn
     |> put_flash(:info, "Sighting deleted successfully.")
-    |> redirect(to: sighting_path(conn, :index))
+    |> redirect(to: admin_sighting_path(conn, :index))
   end
 end

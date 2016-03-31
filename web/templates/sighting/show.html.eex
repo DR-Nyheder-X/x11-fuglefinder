@@ -14,5 +14,5 @@
 
 </ul>
 
-<%= link "Edit", to: sighting_path(@conn, :edit, @sighting) %>
-<%= link "Back", to: sighting_path(@conn, :index) %>
+<%= link "Edit", to: admin_sighting_path(@conn, :edit, @sighting) %>
+<%= link "Back", to: admin_sighting_path(@conn, :index) %>
