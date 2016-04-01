@@ -14,7 +14,9 @@ export default function configureStore () {
   const middleware = [promise()]
 
   if (__DEV) {
-    middleware.push(require('redux-logger')({ collapsed: true }))
+    middleware.push(
+      require('redux-logger')({ collapsed: true })
+    )
   }
 
   const createStoreWithMiddleware =
