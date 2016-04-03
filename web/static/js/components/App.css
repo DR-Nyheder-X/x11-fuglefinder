@@ -15,6 +15,8 @@ html, body {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   background-color: $background-color;
 }
@@ -25,6 +27,27 @@ body {
 
 .App {
   height: 100%;
+  background: yellow;
+
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.TitleBar {
+  height: 44px;
+  flex: 0 0 auto;
+  background: purple;
+}
+
+.TabBar {
+  height: 44px;
+  flex: 0 0 auto;
+  background: green;
+}
+
+.Content {
+  flex: 1 1 auto;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+
