@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
 import { register } from '../store'
 import { resolve } from 'redux-simple-promise'
 import './App.css'
@@ -52,11 +51,85 @@ class App extends Component {
     }
 
     return <div className='App'>
-      <h5><Link to='/'>Appediapp</Link></h5>
-      <Link to='/kitchensink'>Ketchupsink</Link>
-      {children}
+      <TitleBar />
+      <Content children={children} />
+      <TabBar />
     </div>
   }
+}
+
+function Content ({ children }) {
+  return <div className='Content'>
+    {children}
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+    <p>thing</p>
+  </div>
+}
+
+function TitleBar () {
+  return <div className='TitleBar'>
+    TitleBar
+  </div>
+}
+
+function TabBar () {
+  return <div className='TabBar'>
+    TabBar
+  </div>
 }
 
 export default connect(stateToProps)(App)
