@@ -4,16 +4,13 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import App from './components/App'
-
-class HomePage extends React.Component {
-  render () {
-    return <h1>Home</h1>
-  }
-}
+import BirdsPage from './components/BirdsPage'
+import SightingsPage from './components/SightingsPage'
 
 export default (
   <Route path='/' component={App}>
-    <IndexRoute component={HomePage} />
+    <IndexRoute component={BirdsPage} />
+    <Route path='sightings' component={SightingsPage} />
     {__DEV &&
       <Route
         path='/kitchensink'

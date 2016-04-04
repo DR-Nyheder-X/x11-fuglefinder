@@ -8,4 +8,5 @@ export default class KitchensinkPage extends Component {
   }
 }
 
+// Support require(..) to only include in dev env
 module.exports = KitchensinkPage

@@ -1,0 +1,18 @@
+.TabBar {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.TabBarContent {
+  flex: 1 1 auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.TabBarNavigation {
+  height: 44px;
+  flex: 0 0 auto;
+  background: green;
+}
+
