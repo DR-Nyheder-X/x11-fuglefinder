@@ -9,8 +9,10 @@ import SightingsPage from './components/SightingsPage'
 
 export default (
   <Route path='/' component={App}>
-    <IndexRoute component={BirdsPage} />
+    <Route path='birds/:habitat' component={BirdsPage} />
+    <Route path='birds' component={BirdsPage} />
     <Route path='sightings' component={SightingsPage} />
+    <IndexRoute component={BirdsPage} />
     {__DEV &&
       <Route
         path='/kitchensink'
