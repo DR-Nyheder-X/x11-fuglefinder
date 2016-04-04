@@ -11,7 +11,14 @@
   -webkit-user-select: none;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 html {
+  box-sizing: border-box;
   font-family: $fontFamilyBlack;
   font-weight: normal;
   -ms-text-size-adjust: 100%;
@@ -99,6 +106,7 @@ template {
 a {
   background-color: transparent;
   color: $marine;
+  text-decoration: none;
 }
 
 /**
