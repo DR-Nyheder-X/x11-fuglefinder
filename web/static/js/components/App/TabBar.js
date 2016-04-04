@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import classname from 'classname'
 import './TabBar.css'
+import './TabBarNavigation.css'
 
 export default function TabBar ({ children }) {
   return <div className='TabBar'>

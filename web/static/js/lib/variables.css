@@ -15,10 +15,13 @@ $screenWidthXs: 320px;
 $screenWidthS:  375px;
 $screenWidthM:  410px;
 $screenWidthL:  410px;
-$screenWidthXl: 560px;
+$screenWidthXl: 540px;
 
 /* Colors */
-$cream: #FEFBEE;
+$cream:        #FEFBEE;
+$creamDark:    #EEE9CC;
+$creamDarker:  #E1DAC2;
+$creamDarkest: #A19D8C;
 
 $aqua:      #3DD2C5;
 $aquaLight: #51DED2;
@@ -47,32 +50,3 @@ $magentaDark:  #BB6598;
 $yellow:      #FFCE5F;
 $yellowLight: #FFDD93;
 $yellowDark:  #FFBE5A;
-
-
-
-$purple:     #9469FF;
-$purpleDark: #6D43D4;
-
-$red:        #FF5371;
-$redDark:    #D7314E;
-
-$aqua:       #00D3FF;
-$aquaDark:   #00BCE4;
-
-$green:      #19DEB4;
-$greenDark:  #15BD99;
-
-$blue:       #3D87FF;
-$blueDark:   #1854B6;
-
-$pink:       #FF5DB0;
-$pinkDark:   #D94893;
-
-$yellow:     #FFD95A;
-$yellowDark: #FFBC48;
-
-$teal:       #00B2BB;
-$tealDark:   #00949B;
-
-$orange:     #FF855D;
-$orangeDark: #FF6840;

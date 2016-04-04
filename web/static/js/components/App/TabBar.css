@@ -9,9 +9,3 @@
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
-
-.TabBarNavigation {
-  height: 44px;
-  flex: 0 0 auto;
-  background: green;
-}
