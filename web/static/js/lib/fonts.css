@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'akkurat bold';
-  src: url('/fonts/AkkuratProBold.woff2') format('woff2'),
-       url('/fonts/AkkuratProBold.woff') format('woff');
+  font-family: 'din round bold';
+  src: url('/fonts/din-round-bold.woff2') format('woff2'),
+       url('/fonts/din-round-bold.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'akkurat regular';
-  src: url('/fonts/AkkuratProRegular.woff2') format('woff2'),
-       url('/fonts/AkkuratProRegular.woff') format('woff');
+  font-family: 'din round black';
+  src: url('/fonts/din-round-black.woff2') format('woff2'),
+       url('/fonts/din-round-black.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
