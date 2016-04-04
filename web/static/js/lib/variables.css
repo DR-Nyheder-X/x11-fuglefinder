@@ -2,8 +2,8 @@
 $black: #000;
 $fontSize: 15px;
 $fontColor: #000;
-$fontFamilyBold: 'akkurat bold', sans-serif;
-$fontFamilyRegular: 'akkurat regular', sans-serif;
+$fontFamilyBold: 'din round bold', sans-serif;
+$fontFamilyBlack: 'din round black', sans-serif;
 
 /* Spaces */
 $spaceXs: 12px;
