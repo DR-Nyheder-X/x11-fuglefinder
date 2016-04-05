@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import Header from './App/Header'
 
 export default class KitchensinkPage extends Component {
   render () {
     return <div>
-      <img src='http://s3.amazonaws.com/wolty/media/56/original/Kitchen_Sink.jpeg?1305542976' />
+      <img style={{width:'100%'}} src='http://s3.amazonaws.com/wolty/media/56/original/Kitchen_Sink.jpeg?1305542976' />
+      <Header />
+      <Header title='Ellen Page' />
+      <Header title='Jimmy Page' backButton={true} />
     </div>
   }
 }

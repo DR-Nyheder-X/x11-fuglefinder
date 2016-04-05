@@ -1,7 +1,8 @@
 /* Misc */
-$black: #000;
 $fontSize: 15px;
-$fontColor: #000;
+$fontSizeM: 20px;
+$fontSizeL: 22px;
+$fontColor: #304461;
 $fontFamilyBold: 'din round bold', sans-serif;
 $fontFamilyBlack: 'din round black', sans-serif;
 
