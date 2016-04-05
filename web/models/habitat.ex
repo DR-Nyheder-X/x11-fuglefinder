@@ -10,7 +10,7 @@ defmodule Birdie.Habitat do
     timestamps
   end
 
-  @required_fields ~w(name)a
+  @required_fields ~w(name slug)a
   @optional_fields ~w()a
 
   @doc """
