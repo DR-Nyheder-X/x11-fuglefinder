@@ -4,7 +4,7 @@ defmodule Birdie.Api.V1.BirdView do
   def render "index.json", %{birds: birds, habitat: habitat} do
     %{
       data: render_many(birds, __MODULE__, "bird.json"),
-      habitat: habitat.slug
+      habitat: habitat && habitat.slug
     }
   end
 

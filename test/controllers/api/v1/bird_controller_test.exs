@@ -14,7 +14,8 @@ defmodule Birdie.Api.V1.BirdControllerTest do
     conn = get conn, api_v1_bird_path(conn, :index)
 
     resp = json_response(conn, 200)
-    assert length(resp) == 2
+    assert length(resp["data"]) == 2
+    assert is_nil(resp["habitat"])
   end
 
   test "GET index with habitat", %{conn: conn} do
@@ -27,7 +28,8 @@ defmodule Birdie.Api.V1.BirdControllerTest do
     conn = get conn, api_v1_bird_path(conn, :index, habitat: habitat.slug)
 
     resp = json_response(conn, 200)
-    assert length(resp) == 1
-    assert List.first(resp)["name"] == bird1.name
+    assert length(resp["data"]) == 1
+    assert List.first(resp["data"])["name"] == bird1.name
+    assert resp["habitat"] == habitat.slug
   end
 end
