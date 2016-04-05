@@ -19,7 +19,7 @@ defmodule Birdie.Mixfile do
   def application do
     [mod: {Birdie, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :httpoison]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +39,9 @@ defmodule Birdie.Mixfile do
       {:gettext, "~> 0.9"},
       {:cowboy, "~> 1.0"},
       {:secure_random, "~> 0.2"},
-      {:credo, "~> 0.3", only: [:dev, :test]}
+      {:credo, "~> 0.3", only: [:dev, :test]},
+      {:httpoison, "~> 0.8.0"},
+      {:short_maps, github: "whatyouhide/short_maps"}
     ]
   end
 
