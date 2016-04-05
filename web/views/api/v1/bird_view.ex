@@ -1,8 +1,11 @@
 defmodule Birdie.Api.V1.BirdView do
   use Birdie.Web, :view
 
-  def render "index.json", %{birds: birds} do
-    render_many birds, __MODULE__, "bird.json"
+  def render "index.json", %{birds: birds, habitat: habitat} do
+    %{
+      data: render_many(birds, __MODULE__, "bird.json"),
+      habitat: habitat.slug
+    }
   end
 
   def render "bird.json", %{bird: bird} do
