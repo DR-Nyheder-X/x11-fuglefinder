@@ -19,40 +19,35 @@ defmodule Mix.Tasks.Birdie.Import do
 
     Enum.each Repo.all(Bird), &Repo.delete/1
 
-    cached_habitats = Repo.all(Habitat)
-
     fetch_repo
-    |> Enum.each(fn line -> insert_bird(line, cached_habitats) end)
+    |> Enum.each(fn line -> insert_bird(line) end)
   end
 
-  defp insert_bird line, cached_habitats do
+  defp insert_bird line do
     [ _, name, latin_name, _, wikipedia_url,
       rarity, size, habitats, fact ] = Enum.take(line, 9)
 
     attrs = ~m(name latin_name wikipedia_url rarity size fact)a
             |> format_rarity
 
-    habitats = find_habitats attrs, cached_habitats, habitats
+    habitats = find_habitats habitats
 
     changeset = Bird.changeset(%Bird{}, attrs)
     |> Ecto.Changeset.put_assoc(:habitats, habitats)
 
     if changeset.valid? do
       Repo.insert! changeset
+    else
+      IO.inspect changeset
+      IO.inspect changeset.errors
     end
-  end
-
-  defp insert_all_birds birds do
-    Repo.insert_all Bird, birds
   end
 
   defp fetch_repo do
     %HTTPoison.Response{body: body} = HTTPoison.get!(@repo)
-
-    lines = String.split(body, "\r\n")
-            |> Enum.drop(2)
-
-    Enum.map(lines, &(String.split &1, ","))
+    String.split(body, "\r\n")
+    |> Enum.drop(2) # headers
+    |> CSV.decode
   end
 
   defp format_rarity attrs do
@@ -64,23 +59,23 @@ defmodule Mix.Tasks.Birdie.Import do
     Map.put(attrs, :rarity, rarity)
   end
 
-  defp find_habitats attrs, cached_habitats, habitats do
-    habitats = habitats
+  defp find_habitats habitats do
+    IO.puts habitats
+    habitats
     |> String.downcase
-    |> String.replace("\"", "")
     |> String.split(",")
-    |> Enum.map(&(lookup_habitat(cached_habitats, &1)))
-    |> Enum.reject(&is_nil/1)
+    |> Enum.map(&lookup_habitat/1)
+    # |> Enum.reject(&is_nil/1)
   end
 
-  defp lookup_habitat habitats, slug do
+  defp lookup_habitat slug do
     if slug = normalize_slug(slug) do
       Repo.get_by Habitat, slug: slug
     end
   end
 
   defp normalize_slug slug do
-    Map.get(@slug_transformations, slug)
+    Map.get(@slug_transformations, String.strip(slug))
   end
 end
 
