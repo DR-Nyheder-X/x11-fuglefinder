@@ -54,7 +54,8 @@ defmodule Birdie.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
+      "ecto.seed": ["run priv/repo/seeds.exs", "birdie.import"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       "phoenix.digest": ["birdie.digest", "phoenix.digest"]
     ]
