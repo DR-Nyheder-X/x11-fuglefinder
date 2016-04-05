@@ -51,7 +51,8 @@ register({ birds: reducer })
 
 const stateToProps = (state, props) => ({
   birds: state.birds.birds,
-  habitat: props.params.habitat
+  habitat: props.params.habitat,
+  birdId: props.params.birdId
 })
 
 class BirdsPage extends Component {
@@ -75,11 +76,25 @@ class BirdsPage extends Component {
       return <h1>Loading</h1>
     }
 
+    let { birdId } = this.props
+    let shownBird
+    if (birdId) {
+      birdId = parseInt(birdId, 10)
+      shownBird = birds.find((bird) => bird.id === birdId)
+    }
+
     return <div className='BirdsPage'>
       <Header title={habitats[habitat]} backButton />
-      {birds.map((bird) => <BirdTile key={bird.id} bird={bird} />)}
+      {shownBird && <GiantModal bird={shownBird} />}
+      {birds.map((bird) => (
+        <BirdTile key={bird.id} { ...{bird, habitat} } />
+      ))}
     </div>
   }
+}
+
+function GiantModal ({ bird }) {
+  return <div><h1>GIANT MODAL WITH {bird.name}</h1></div>
 }
 
 export default connect(stateToProps)(BirdsPage)
