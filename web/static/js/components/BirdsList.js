@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
 
 export default function BirdsList ({ habitat }) {
   return <div className='BirdsList'>
