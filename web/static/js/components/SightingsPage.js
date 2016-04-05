@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import Header from './App/Header'
 
 export default class SightingsPage extends Component {
