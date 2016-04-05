@@ -3,7 +3,7 @@ export default {
   'Græseng': 'grass',
   'Dyrket mark': 'field',
   'Hede': 'moore',
-  'Skow': 'woods',
+  'Skov': 'woods',
   'By, have og park': 'city',
   'Søer og vandløb': 'water'
 }
