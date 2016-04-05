@@ -20,6 +20,7 @@ export function fetchBirdsByHabitat (habitat) {
 /* REDUCER */
 
 export const initialState = {
+  isFetching: false,
   birds: Object.keys(habitats).reduce((obj, key) => {
     obj[key] = []
     return obj
@@ -28,9 +29,12 @@ export const initialState = {
 
 export function reducer (state = initialState, action) {
   switch (action.type) {
+    case FETCH_BIRDS_BY_HABITAT:
+      return { ...state, isFetching: true }
     case resolve(FETCH_BIRDS_BY_HABITAT):
       return {
         ...state,
+        isFetching: false,
         birds: {
           ...state.birds,
           [action.payload.habitat]: action.payload.data
@@ -64,8 +68,12 @@ class BirdsPage extends Component {
   }
 
   render () {
-    const { habitat } = this.props
+    const { habitat, isFetching } = this.props
     const birds = this.props.birds[habitat]
+
+    if (isFetching) {
+      return <h1>Loading</h1>
+    }
 
     return <div className='BirdsPage'>
       <Header title={habitats[habitat]} backButton />

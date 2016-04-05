@@ -10,6 +10,7 @@ defmodule Birdie.Api.V1.BirdView do
 
   def render "bird.json", %{bird: bird} do
     %{
+      id: bird.id,
       name: bird.name,
       latin_name: bird.latin_name,
       fact: bird.fact,
