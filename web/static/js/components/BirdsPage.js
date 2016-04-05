@@ -13,8 +13,9 @@ class BirdsPage extends Component {
     const { habitat } = this.props
 
     return <div className='BirdsPage'>
-      <Header />
+      {!!habitat && <Header title={habitat} backButton={true} />}
       {!!habitat && <BirdsList habitat={habitat} />}
+      {!!habitat || <Header />}
       {!!habitat || <HabitatList />}
     </div>
   }
