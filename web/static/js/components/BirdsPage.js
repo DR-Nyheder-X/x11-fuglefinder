@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import HabitatList from './HabitatList'
 import BirdsList from './BirdsList'
+import Header from './App/Header'
 
 const stateToProps = (state, props) => ({
   habitat: props.params.habitat
@@ -12,6 +13,7 @@ class BirdsPage extends Component {
     const { habitat } = this.props
 
     return <div className='BirdsPage'>
+      <Header />
       {!!habitat && <BirdsList habitat={habitat} />}
       {!!habitat || <HabitatList />}
     </div>
