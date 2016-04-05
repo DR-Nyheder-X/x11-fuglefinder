@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import HabitatList from './HabitatList'
-import BirdsList from './BirdsList'
+import habitats from '../lib/habitats'
 import Header from './App/Header'
 
 const stateToProps = (state, props) => ({
@@ -9,20 +8,17 @@ const stateToProps = (state, props) => ({
 })
 
 class BirdsPage extends Component {
+  static propTypes = {
+    habitat: PropTypes.string
+  }
+
   render () {
     const { habitat } = this.props
 
     return <div className='BirdsPage'>
-      {!!habitat && <Header title={habitat} backButton />}
-      {!!habitat && <BirdsList habitat={habitat} />}
-      {!!habitat || <Header />}
-      {!!habitat || <HabitatList />}
+      <Header title={habitats[habitat]} backButton />
     </div>
   }
-}
-
-BirdsPage.propTypes = {
-  habitat: PropTypes.string
 }
 
 export default connect(stateToProps)(BirdsPage)
