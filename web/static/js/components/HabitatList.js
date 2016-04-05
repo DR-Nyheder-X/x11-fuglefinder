@@ -5,10 +5,9 @@ import SectionLink from './SectionLink'
 export default function HabitatList () {
   return <div className='HabitatList'>
     {Object.keys(habitats).map((key) => (
-      <SectionLink
-        key={key}
-        to={`/birds/${habitats[key]}`}
-        children={key}
+      <SectionLink key={key}
+        to={`/habitats/${key}`}
+        children={habitats[key]}
       />
     ))}
   </div>
