@@ -9,14 +9,13 @@ defmodule Birdie.Bird do
     field :rarity, :integer
     field :size, :string
 
-    belongs_to :habitat, Birdie.Habitat
-    many_to_many :habitats, Birdie.Habitat, join_through: "birds_habitats"
+    many_to_many :habitats, Birdie.Habitat, join_through: "birds_habitats", on_delete: :delete_all
 
     timestamps
   end
 
-  @required_fields ~w(name latin_name fact wikipedia_url rarity size)a
-  @optional_fields ~w()a
+  @required_fields ~w(name latin_name wikipedia_url rarity size)a
+  @optional_fields ~w(fact)a
 
   @doc """
   Creates a changeset based on the `model` and `params`.
