@@ -41,7 +41,8 @@ defmodule Birdie.Mixfile do
       {:secure_random, "~> 0.2"},
       {:credo, "~> 0.3", only: [:dev, :test]},
       {:httpoison, "~> 0.8.0"},
-      {:short_maps, github: "whatyouhide/short_maps"}
+      {:short_maps, github: "whatyouhide/short_maps"},
+      {:csv, "~> 1.4.0"}
     ]
   end
 
