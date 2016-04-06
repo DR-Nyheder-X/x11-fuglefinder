@@ -3,7 +3,7 @@ defmodule Birdie.HabitatTest do
 
   alias Birdie.Habitat
 
-  @valid_attrs %{name: "some content"}
+  @valid_attrs %{name: "some content", slug: "donna"}
   @invalid_attrs %{}
 
   test "changeset with valid attributes" do

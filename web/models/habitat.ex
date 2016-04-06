@@ -3,13 +3,14 @@ defmodule Birdie.Habitat do
 
   schema "habitats" do
     field :name, :string
+    field :slug, :string
 
     many_to_many :birds, Birdie.Bird, join_through: "birds_habitats"
 
     timestamps
   end
 
-  @required_fields ~w(name)a
+  @required_fields ~w(name slug)a
   @optional_fields ~w()a
 
   @doc """

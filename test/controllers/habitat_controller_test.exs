@@ -2,7 +2,7 @@ defmodule Birdie.HabitatControllerTest do
   use Birdie.ConnCase
 
   alias Birdie.Habitat
-  @valid_attrs %{name: "some content"}
+  @valid_attrs %{name: "some content", slug: "sluggy"}
   @invalid_attrs %{}
 
   test "lists all entries on index", %{conn: conn} do
