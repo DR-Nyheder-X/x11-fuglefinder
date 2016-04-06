@@ -3,9 +3,8 @@ import { Link } from 'react-router'
 import './Rating.css'
 
 export default class Rating extends Component {
-
   render () {
-    return <div className={`Rating Rating--${this.props.rating}`}>
+    return <div className={`Rating Rating--${this.props.rating}`} data-has-title={this.props.title ? 'true' : 'false'}>
       {this.props.title &&
         <div class='Rating-title'>{this.props.title}</div>
       }

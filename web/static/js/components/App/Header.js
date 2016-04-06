@@ -3,7 +3,6 @@ import { Link } from 'react-router'
 import './Header.css'
 
 export default class Header extends Component {
-
   render () {
     return <div className='Header'>
       {this.props.backButton &&
