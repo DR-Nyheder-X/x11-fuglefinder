@@ -1,3 +1,6 @@
+@import '../../lib/variables';
+@import '../../lib/mixins';
+
 .TabBar {
   height: 100vh;
   display: flex;

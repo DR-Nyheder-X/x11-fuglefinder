@@ -6,15 +6,15 @@
   flex-direction: column;
   padding-right: $spaceXs;
   padding-left: $spaceXs;
+  padding-top: $headerHeight;
+  padding-bottom: $headerHeight;
   .SectionLink:last-child { margin-bottom: $spaceXs; }
 }
 
 .HabitatList-guide {
-  background: tomato;
+  background: $creamDark;
+  margin-top: 11px;
   margin-bottom: 9px;
-  height: 68px;
+  height: 44px;
   @media ( min-height: 550px ) { height: 80px; }
-}
-
-.HabitatList-items {
 }
