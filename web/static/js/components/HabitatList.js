@@ -10,10 +10,9 @@ export default function HabitatList () {
     </div>
     <div className='HabitatList-items'>
       {Object.keys(habitats).map((key) => (
-        <SectionLink
-          key={key}
-          to={`/birds/${habitats[key]}`}
-          children={key}
+        <SectionLink key={key}
+          to={`/habitats/${key}`}
+          children={habitats[key]}
         />
       ))}
     </div>

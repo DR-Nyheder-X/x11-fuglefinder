@@ -13,7 +13,7 @@
 <%= for bird <- @birds do %>
     <tr>
       <td><%= bird.name %></td>
-      <td><%= bird.fact %></td>
+      <td><%= Enum.map(bird.habitats, &(&1.name)) |> Enum.join(", ") %></td>
 
       <td class="text-right">
         <%= link "Show", to: admin_bird_path(@conn, :show, bird), class: "btn btn-default btn-xs" %>
