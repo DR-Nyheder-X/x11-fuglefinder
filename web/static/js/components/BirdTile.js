@@ -4,13 +4,13 @@ import Rating from './App/Rating'
 import './BirdTile.css'
 
 export default function BirdTile ({ bird, habitat }) {
-  return <div className='BirdTile'>
+  return <div className='BirdTile BirdTile--found'>
     <div className='BirdTile-inner'>
       <header className='BirdTile-header'>
         <Link to={`/habitats/${habitat}/${bird.id}`}>
           {bird.name}
         </Link>
-        <button className='BirdTile-found'>F/NF</button>
+        <button className='BirdTile-found'></button>
       </header>
       <div className='BirdTile-image'>
         <Link to={`/habitats/${habitat}/${bird.id}`}>
@@ -18,7 +18,7 @@ export default function BirdTile ({ bird, habitat }) {
         </Link>
       </div>
       <div className='BirdTile-rating'>
-        <Rating rating='1' />
+        <Rating rating={1} />
       </div>
     </div>
   </div>

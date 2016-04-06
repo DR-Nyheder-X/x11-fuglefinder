@@ -1,3 +1,43 @@
+@import '../../lib/variables';
+@import '../../lib/mixins';
+
 .Rating {
-  
+  background-color: $cream;
+  border-radius: 2px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .18);
+  padding: 0 $spaceXs;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Rating svg {
+  margin: 0 .045em;
+}
+
+.Rating--1 {
+  svg:nth-child(1) polygon { fill: $aquaDark; }
+}
+
+.Rating--2 {
+  svg:nth-child(1) polygon,
+  svg:nth-child(2) polygon { fill: $magenta; }
+}
+
+.Rating--3 {
+  svg:nth-child(1) polygon,
+  svg:nth-child(2) polygon,
+  svg:nth-child(3) polygon { fill: $purple; }
+}
+
+.Rating--4 {
+  svg:nth-child(1) polygon,
+  svg:nth-child(2) polygon,
+  svg:nth-child(3) polygon,
+  svg:nth-child(4) polygon { fill: $red; }
+}
+
+.Rating--5 {
+  svg polygon { fill: $marineDark; }
 }
