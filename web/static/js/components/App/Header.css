@@ -65,6 +65,6 @@
   > svg path { fill: $cream; }
 
   &:active {
-    background-color: $marineDark;
+    background-color: $marineLight;
   }
 }
