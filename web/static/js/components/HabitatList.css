@@ -39,7 +39,7 @@
   }
 
   @media ( min-device-width: 414px ) {
-    width: auto;
+    width: 32px;
     margin-right: 0;
     position: relative;
     bottom: -.1em;
