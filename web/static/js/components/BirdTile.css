@@ -1,0 +1,52 @@
+@import '../lib/variables';
+@import '../lib/mixins';
+
+$birdTileHeaderHeight: 48px;
+
+.BirdTiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: $headerHeight 4.5px 0;
+}
+
+.BirdTile {
+  width: 50%;
+  padding: $spaceXs 4.5px;
+  position: relative;
+}
+
+.BirdTile-inner {
+  background-color: brown;
+  padding-top: $birdTileHeaderHeight;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  border-radius: 2px;
+}
+
+.BirdTile-header,
+.BirdTile-rating {
+  position: absolute;
+  top: $spaceXs;
+  left: 4.5px;
+  right: 4.5px;
+}
+
+.BirdTile-rating {
+  top: auto;
+  bottom: 0;
+}
+
+.BirdTile-header {
+  background-color: orange;
+  height: $birdTileHeaderHeight;
+}
+
+.BirdTile-found {
+  appearance: none;
+}
+
+.BirdTile-image {
+  img { width: 100%; display: block; }
+}
