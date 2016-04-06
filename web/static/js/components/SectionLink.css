@@ -21,7 +21,7 @@
   }
 
   @media ( min-height: 550px ) {
-    height: 52px;
+    height: $headerHeight;
     font-size: $fontSizeM;
     padding-left: 16px;
     > span { position: relative; top: -.075em; }
@@ -42,7 +42,7 @@ span.SectionLink-arrow {
   > svg path { fill: $marineLight; }
 
   @media ( min-height: 520px ) { width: 42px; }
-  @media ( min-height: 550px ) { width: 52px; }
+  @media ( min-height: 550px ) { width: $headerHeight; }
 }
 
 .HabitatList-items {

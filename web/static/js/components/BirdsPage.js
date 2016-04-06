@@ -86,9 +86,11 @@ class BirdsPage extends Component {
     return <div className='BirdsPage'>
       <Header title={habitats[habitat]} backButton />
       {shownBird && <GiantModal bird={shownBird} />}
-      {birds.map((bird) => (
-        <BirdTile key={bird.id} { ...{bird, habitat} } />
-      ))}
+      <div className='BirdTiles'>
+        {birds.map((bird) => (
+          <BirdTile key={bird.id} { ...{bird, habitat} } />
+        ))}
+      </div>
     </div>
   }
 }
