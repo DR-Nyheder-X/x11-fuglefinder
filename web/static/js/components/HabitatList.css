@@ -16,5 +16,32 @@
   margin-top: 11px;
   margin-bottom: 9px;
   height: 44px;
-  @media ( min-height: 550px ) { height: 80px; }
+  color: $creamDarkest;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > span { position: relative; top: -.075em; }
+  @media ( min-device-width: 375px ) { height: 74px; font-size: $fontSizeM; }
+  @media ( min-device-width: 414px ) {
+    height: 101px;
+    flex-direction: column;
+    > span { top: 0; }
+  }
+}
+
+.HabitatList-guide svg {
+  display: none;
+
+  @media ( min-device-width: 375px ) {
+    display: inline-block;
+    width: 24px;
+    margin-right: 10px;
+  }
+
+  @media ( min-device-width: 414px ) {
+    width: auto;
+    margin-right: 0;
+    position: relative;
+    bottom: -.1em;
+  }
 }
