@@ -16,16 +16,15 @@
   color: $cream;
   &:active { background: $marineLight; }
 
-  @media ( min-height: 520px ) {
-    height: 42px;
-  }
-
-  @media ( min-height: 550px ) {
-    height: $headerHeight;
+  @media ( min-device-width: 375px ) {
+    height: 46px;
     font-size: $fontSizeM;
     padding-left: 16px;
-    > span { position: relative; top: -.075em; }
+    > span { position: relative; top: -.05em; }
   }
+
+  @media ( min-device-width: 414px ) { height: $headerHeight; }
+
 }
 
 span.SectionLink-arrow {
@@ -41,8 +40,8 @@ span.SectionLink-arrow {
   align-items: center;
   > svg path { fill: $marineLight; }
 
-  @media ( min-height: 520px ) { width: 42px; }
-  @media ( min-height: 550px ) { width: $headerHeight; }
+  @media ( min-device-width: 375px ) { width: 46px; }
+  @media ( min-device-width: 414px ) { width: $headerHeight; }
 }
 
 .HabitatList-items {
