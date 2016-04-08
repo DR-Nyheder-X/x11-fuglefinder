@@ -45,7 +45,7 @@ defmodule Birdie.Mixfile do
       {:short_maps, github: "whatyouhide/short_maps"},
       {:csv, "~> 1.4.0"},
       {:arc, "~> 0.5.1"},
-      {:arc_ecto, path: "~/Developer/arc_ecto"},
+      {:arc_ecto, github: "mikker/arc_ecto"},
       {:ex_aws, "~> 0.4.10"},
     ]
   end
