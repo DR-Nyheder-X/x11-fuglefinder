@@ -1,9 +1,15 @@
-<%= form_for @changeset, @action, fn f -> %>
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
   <%= if @changeset.action do %>
     <div class="alert alert-danger">
       <p>Oops, something went wrong! Please check the errors below.</p>
     </div>
   <% end %>
+
+  <div class="form-group">
+    <%= label f, :picture, class: "control-label" %>
+    <%= file_input f, :picture, class: "form-control" %>
+    <%= error_tag f, :picture %>
+  </div>
 
   <div class="form-group">
     <%= label f, :name, class: "control-label" %>
@@ -12,8 +18,31 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :latin_name, class: "control-label" %>
+    <%= text_input f, :latin_name, class: "form-control" %>
+    <%= error_tag f, :latin_name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :wikipedia_url, class: "control-label" %>
+    <%= text_input f, :wikipedia_url, class: "form-control" %>
+    <%= error_tag f, :wikipedia_url %>
+  </div>
+
+  <div class="form-group">
+    <h5>Habitats</h5>
+    <%= for habitat <- @habitats do %>
+      <label style="display: block">
+        <input type="checkbox" name='bird[habitat_ids][]' value='<%= habitat.id %>' <%= if member_of_habitat?(f.data, habitat), do: "checked" %>>
+        <%= habitat.name %>
+      </label>
+    <% end %>
+    <%= error_tag f, :habitat_ids %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :fact, class: "control-label" %>
-    <%= text_input f, :fact, class: "form-control" %>
+    <%= textarea f, :fact, class: "form-control" %>
     <%= error_tag f, :fact %>
   </div>
 

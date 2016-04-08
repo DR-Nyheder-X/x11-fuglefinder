@@ -9,6 +9,7 @@ defmodule Birdie.Repo.Migrations.CreateBird do
       add :wikipedia_url, :string
       add :rarity, :integer
       add :size, :string
+      add :picture, :string
 
       timestamps
     end
