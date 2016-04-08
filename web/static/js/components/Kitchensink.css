@@ -1,0 +1,8 @@
+.Kitchensink {
+  .Header { position: relative; }
+  .Filters { margin-top: 0; }
+}
+
+.Kitchensink-image {
+  padding: 9px;
+}
