@@ -33,6 +33,6 @@ defmodule Birdie.Router do
   scope "/", Birdie do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/*path", PageController, :index
   end
 end
