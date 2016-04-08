@@ -9,6 +9,6 @@ defmodule Birdie.BirdView do
     volume_path = Application.get_env(:birdie, :volume_path)
     path = Birdie.Picture.url({bird.picture, bird}, size)
             |> String.replace(volume_path, "")
-    {:safe, "<img src='/#{path}'>"}
+    {:safe, "<img src='#{path}'>"}
   end
 end
