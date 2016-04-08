@@ -7,8 +7,7 @@ defmodule Birdie.BirdView do
 
   def bird_image bird, size \\ :original do
     path = Birdie.Picture.url({bird.picture, bird}, size)
-            |> String.replace("priv/static", "")
-    {:safe, "<img src='#{path}'>"}
+    {:safe, "<img src='/#{path}'>"}
 
   end
 end

@@ -10,6 +10,8 @@ defmodule Birdie.Endpoint do
   plug Plug.Static,
     at: "/", from: :birdie, gzip: false,
     only: ~w(css fonts images js uploads favicon.ico robots.txt)
+  plug Plug.Static,
+    at: "/", from: "uploads", gzip: true
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
