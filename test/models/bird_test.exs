@@ -32,8 +32,6 @@ defmodule Birdie.BirdTest do
       habitat_ids: [habitat2.id, inspect(habitat3.id)]
     }))
 
-    IO.inspect changeset
-
     assert changeset.valid?
     assert length(changeset.changes.habitats) == 2
 
