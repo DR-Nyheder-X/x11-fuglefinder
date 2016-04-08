@@ -5,7 +5,7 @@ import BirdTile from './BirdTile'
 import './Kitchensink.css'
 
 const sampleBird = {
-  name: "Splitfjamset Snydestær"
+  name: 'Splitfjamset Snydestær'
 }
 
 export default class KitchensinkPage extends Component {

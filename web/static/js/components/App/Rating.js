@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
 import './Rating.css'
 
 export default class Rating extends Component {
@@ -29,5 +28,5 @@ export default class Rating extends Component {
 
 Rating.propTypes = {
   titel: PropTypes.string,
-  rating: PropTypes.number //1..5
+  rating: PropTypes.number // 1..5
 }
