@@ -6,6 +6,7 @@ import Header from './App/Header'
 import Api from '../lib/Api'
 import { register } from '../store'
 import BirdTile from './BirdTile'
+import Filters from './App/Filters'
 
 /* ACTIONS */
 
@@ -86,6 +87,7 @@ class BirdsPage extends Component {
     return <div className='BirdsPage'>
       <Header title={habitats[habitat]} backButton />
       {shownBird && <GiantModal bird={shownBird} />}
+      <Filters searchIsFocused={false} />
       <div className='BirdTiles'>
         {birds.map((bird) => (
           <BirdTile key={bird.id} { ...{bird, habitat} } />

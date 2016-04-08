@@ -1,0 +1,186 @@
+@import '../../lib/variables';
+@import '../../lib/mixins';
+
+$searchFieldHeight: 43px;
+
+.Filters {
+  margin-top: $headerHeight;
+  padding-top: 8px;
+  padding-right: $spaceXs;
+  padding-left: $spaceXs;
+}
+
+/*form*/.Filters-search {
+  background-color: $creamDark;
+  border-radius: 2px;
+  height: $searchFieldHeight;
+  display: flex;
+  overflow: hidden;
+  padding: 0;
+  margin-right: $spaceXs;
+  position: relative;
+  input, button { appearance: none; border: 0; }
+}
+
+.Filters-search-field {
+  height: $searchFieldHeight;
+  border-radius: 0;
+  background-color: $creamDark;
+  line-height: $searchFieldHeight;
+  outline: 0;
+  font-size: $fontSizeM;
+  padding: 0 0 0 44px;
+  color: $marine;
+
+  &::placeholder {
+    color: $creamDarkest;
+  }
+}
+
+.Filters-search-submit {
+  width: 44px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: $searchFieldHeight;
+  background-color: $creamDark;
+  > svg { position: relative; top: .175em; }
+}
+
+.Filters-search-clear {
+  width: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: $creamDark;
+  height: $searchFieldHeight;
+  transform: translateX(42px);
+  transition: transform .15s ease;
+  > svg { position: relative; top:.025em; }
+}
+
+.Filters[data-search-is-focused="true"] {
+  .Filters-search-submit {
+    > svg > g { fill: $marine; }
+  }
+  .Filters-search-clear {
+    transform: translateX(0px);
+  }
+}
+
+.Filters-size-toggle {
+  background-color: $red;
+  border: 0;
+  width: 76px;
+  height: $searchFieldHeight;
+  border-radius: 2px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.Filters-size-toggle-clear {
+  width: 76px;
+  height: $searchFieldHeight;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-76px);
+  transition: transform .15s ease;
+  > svg { height: $searchFieldHeight; }
+}
+
+.Filters-size-toggle-open {
+  width: 76px;
+  height: $searchFieldHeight;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(0px);
+  transition: transform .15s ease;
+}
+
+.Filters-size-toggle svg#bird {
+  height: $searchFieldHeight;
+  position: absolute;
+  top: 0;
+  left: 12px;
+}
+
+.Filters-size-toggle svg#triangle {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/*form*/.Filters-size-dropdown {
+  @include blockyText;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  padding: 8px;
+  background-color: $red;
+  border-radius: 2px;
+  display: none;
+  position: relative;
+
+  > div input[type=radio] { display: none; }
+
+  > div {
+    width: 33.33%;
+    text-align: center;
+  }
+
+  > div label {
+    display: block;
+    height: 32px;
+    line-height: 28px;
+    background-color: $cream;
+    border: 2px solid $marine;
+  }
+
+  > div label[for='small'] {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    border-right: 0;
+  }
+
+  > div label[for='large'] {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    border-left: 0;
+  }
+
+  > div input[type=radio]:checked + label {
+    background-color: $marine;
+    color: $cream;
+  }
+}
+
+.Filters-size-dropdown > svg {
+  position: absolute;
+  top: -5px;
+  right: 30px;
+}
+
+.Filters[data-dropdown-is-open='true'] {
+  .Filters-size-toggle-open { transform: translateX(76px); }
+  .Filters-size-toggle-clear { transform: translateX(0px); }
+  .Filters-size-dropdown { display: flex; }
+}
+
+.Filters-toolbar {
+  position: relative;
+  margin-bottom: $spaceXs;
+
+  .Filters-size-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .Filters-search {
+    margin-right: 85px;
+  }
+}
