@@ -1,6 +1,6 @@
 <h2>Edit bird</h2>
 
-<%= render "form.html", changeset: @changeset,
+<%= render "form.html", changeset: @changeset, habitats: @habitats,
                         action: admin_bird_path(@conn, :update, @bird) %>
 
 <%= link "Back", to: admin_bird_path(@conn, :index) %>
