@@ -1,4 +1,5 @@
 %{"arc": {:hex, :arc, "0.5.1"},
+  "arc_ecto": {:git, "https://github.com/mikker/arc_ecto.git", "b97aa1ae3940d42b7089785c4fcabbf30b3ec1e2", []},
   "bunt": {:hex, :bunt, "0.1.5"},
   "certifi": {:hex, :certifi, "0.4.0"},
   "connection": {:hex, :connection, "1.0.2"},
