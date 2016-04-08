@@ -1,10 +1,15 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import Rating from './App/Rating'
+import classname from 'classname'
 import './BirdTile.css'
 
-export default function BirdTile ({ bird, habitat }) {
-  return <div className='BirdTile BirdTile--found'>
+export default function BirdTile ({ bird, habitat, found }) {
+  const cls = classname('BirdTile', {
+    'BirdTile--found': found
+  })
+
+  return <div className={cls}>
     <div className='BirdTile-inner'>
       <header className='BirdTile-header'>
         <Link to={`/habitats/${habitat}/${bird.id}`}>
@@ -25,5 +30,7 @@ export default function BirdTile ({ bird, habitat }) {
 }
 
 BirdTile.propTypes = {
-  bird: PropTypes.object.isRequired
+  bird: PropTypes.object.isRequired,
+  habitat: PropTypes.string.isRequired,
+  found: PropTypes.bool
 }
