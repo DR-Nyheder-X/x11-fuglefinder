@@ -60,7 +60,7 @@ class App extends Component {
     return <TabBar className='App'>
       <TabBarContent children={children} />
       <TabBarNavigation>
-        <TabBarButton to='/' active={pathname === '/' || pathname.match(/^\/habitats/)}>
+        <TabBarButton to='/' active={pathname === '/' || !!pathname.match(/^\/habitats/)}>
           <div className='TabBarButton-inner'>
             <BirdIcon />
             <span>Alle fugle</span>
