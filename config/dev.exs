@@ -13,6 +13,9 @@ config :birdie, Birdie.Endpoint,
   check_origin: false,
   watchers: [node: ["./webpack.dev.js"]]
 
+config :birdie,
+  volume_path: "uploads/"
+
 # Watch static and templates for browser reloading.
 config :birdie, Birdie.Endpoint,
   live_reload: [

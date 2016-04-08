@@ -28,7 +28,8 @@ defmodule Birdie.Picture do
 
   # Override the storage directory:
   def storage_dir(_version, {_file, scope}) do
-    "/app/uploads/pictures/#{scope.id}"
+    dir = Application.get_env(:birdie, :volume_path)
+    "#{dir}pictures/#{scope.id}"
   end
 
   # Provide a default URL if there hasn't been a file uploaded
