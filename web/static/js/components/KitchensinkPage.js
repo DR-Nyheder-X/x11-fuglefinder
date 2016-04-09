@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from './App/Header'
 import Filters from './App/Filters'
+import ShareNotice from './App/ShareNotice'
 import BirdTile from './BirdTile'
 import BirdTileCompact from './BirdTileCompact'
 import Card from './App/Card'
@@ -20,7 +21,8 @@ export default class KitchensinkPage extends Component {
       <Filters searchIsFocused />
       <Filters sizeDropdownIsOpen />
       <img style={{width: '100%'}} src='http://s3.amazonaws.com/wolty/media/56/original/Kitchen_Sink.jpeg?1305542976' />
-      <BirdTileCompact title='Stenpikker' />
+      <ShareNotice />
+      <BirdTileCompact title='Bitter svulmeklyde' />
       <BirdTileCompact title='Stenpikker' found />
       <Card title='Sjatfedtet stumflamingo' />
       <Card title='Sjatfedtet stumflamingo' found />

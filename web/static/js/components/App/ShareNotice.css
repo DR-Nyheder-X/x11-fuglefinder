@@ -1,0 +1,77 @@
+@import '../../lib/variables';
+@import '../../lib/mixins';
+
+.ShareNotice {
+  padding: 0 $spaceXs $spaceXs;
+}
+
+.ShareNotice-inner {
+  border: 3px solid $marineDark;
+  border-radius: 2px;
+  background-color: #fff;
+  display: flex;
+  position: relative;
+}
+
+.ShareNotice-content {
+  padding: $spaceXs;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h1 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: $fontSize;
+    color: $marineDark;
+    line-height: 1.25;
+  }
+}
+
+.ShareNotice-image {
+  width: 140%;
+  background-color: #F0F0F0;
+  img { width: 100%; display: block; }
+}
+
+.ShareNotice-close {
+  appearance: none;
+  outline: 0;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 0 0 rgba(0, 0, 0, .18);
+  > svg { fill: $marineDark; }
+}
+
+.ShareNotice-callToAction {
+  button {
+    appearance: none;
+    border: 0;
+    margin: 0;
+    background-color: $marineDark;
+    color: $cream;
+    border-radius: 2px;
+    padding: 4px 14px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+
+    svg {
+      height: 20px;
+      margin-left: .55em;
+      align-self: stretch;
+    }
+  }
+}
