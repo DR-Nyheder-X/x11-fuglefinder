@@ -8,13 +8,15 @@ defmodule Birdie.Picture do
 
   @versions [:original, :list, :tile, :single]
 
+  def versions, do: @versions
+
   # Whitelist file extensions:
   def validate({file, _}) do
     ~w(.jpg .jpeg .gif .png) |> Enum.member?(Path.extname(file.file_name))
   end
 
   defp squared(size) do
-    "-strip -thumbnail #{size}x#{size}^ -gravity center -extent #{size}x#{size} -format png"
+    "-strip -thumbnail #{size}x#{size}^ -gravity center -extent #{size}x#{size} -format jpg"
   end
 
   def transform(:list, _), do: {:convert, squared(100), :jpg}
@@ -36,6 +38,7 @@ defmodule Birdie.Picture do
   def default_url(:list, _), do: "https://placehold.it/100x100"
   def default_url(:tile, _), do: "https://placehold.it/250x250"
   def default_url(:single, _), do: "https://placehold.it/500x500"
+  def default_url(_, _), do: "https://placehold.it/500x500"
 
   # Specify custom headers for s3 objects
   # Available options are [:cache_control, :content_disposition,

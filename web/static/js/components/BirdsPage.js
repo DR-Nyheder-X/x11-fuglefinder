@@ -37,6 +37,7 @@ export const initialState = {
 export function reducer (state = initialState, action) {
   switch (action.type) {
     case FETCH_BIRDS_BY_HABITAT:
+    case FETCH_BIRD:
       return { ...state, isFetching: true }
     case resolve(FETCH_BIRDS_BY_HABITAT):
       return {
@@ -47,6 +48,7 @@ export function reducer (state = initialState, action) {
     case resolve(FETCH_BIRD):
       return {
         ...state,
+        isFetching: false,
         birds: unionBy(state.birds, [action.payload.data], 'id')
       }
     default:
@@ -58,14 +60,17 @@ register({ birds: reducer })
 
 /* COMPONENT */
 
-const stateToProps = (state, props) => ({
-  birds: state.birds.birds,
-  slug: props.params.slug
-})
+const stateToProps = (state, props) => {
+  const slug = props.params.slug
+  return {
+    slug,
+    birds: state.birds.birds.filter(bySlug(slug))
+  }
+}
 
 class BirdsPage extends Component {
   static propTypes = {
-    birds: PropTypes.object,
+    birds: PropTypes.arrayOf(PropTypes.object.isRequired),
     dispatch: PropTypes.func.isRequired,
     slug: PropTypes.string
   }
@@ -84,7 +89,7 @@ class BirdsPage extends Component {
 
   render () {
     const { slug, isFetching } = this.props
-    const birds = this.props.birds[slug]
+    const birds = this.props.birds
 
     if (isFetching) {
       return <h1>Loading</h1>
@@ -106,5 +111,7 @@ class BirdsPage extends Component {
     </div>
   }
 }
+
+const bySlug = (slug) => (bird) => bird.habitats.includes(slug)
 
 export default connect(stateToProps)(BirdsPage)

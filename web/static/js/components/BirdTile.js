@@ -19,7 +19,7 @@ export default function BirdTile ({ bird, to, found, onFoundClick }) {
       </header>
       <div className='BirdTile-image'>
         <Link to={to}>
-          <img src='http://thunderfluff.com/fuglefinder/bird.jpg' />
+          <img src={bird.picture.list} alt='' />
         </Link>
       </div>
       <div className='BirdTile-rating'>
