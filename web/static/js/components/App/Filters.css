@@ -44,6 +44,7 @@ $searchFieldHeight: 43px;
   left: 0;
   height: $searchFieldHeight;
   background-color: $creamDark;
+  outline: 0;
   > svg { position: relative; top: .175em; }
 }
 
@@ -56,6 +57,7 @@ $searchFieldHeight: 43px;
   height: $searchFieldHeight;
   transform: translateX(42px);
   transition: transform .15s ease;
+  outline: 0;
   > svg { position: relative; top:.025em; }
 }
 
@@ -77,6 +79,7 @@ $searchFieldHeight: 43px;
   padding: 0;
   overflow: hidden;
   position: relative;
+  outline: 0;
 }
 
 .Filters-size-toggle-clear {
