@@ -8,6 +8,10 @@ defmodule Birdie.Api.V1.BirdView do
     }
   end
 
+  def render "show.json", %{bird: bird} do
+    %{data: render_one(bird, __MODULE__, "bird.json")}
+  end
+
   def render "bird.json", %{bird: bird} do
     %{
       id: bird.id,

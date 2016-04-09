@@ -3,6 +3,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Fact</th>
 
@@ -12,6 +13,7 @@
   <tbody>
 <%= for bird <- @birds do %>
     <tr>
+      <td><%= bird_image bird, :list %></td>
       <td><%= bird.name %></td>
       <td><%= Enum.map(bird.habitats, &(&1.name)) |> Enum.join(", ") %></td>
 

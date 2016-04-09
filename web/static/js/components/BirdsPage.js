@@ -7,6 +7,7 @@ import Api from '../lib/Api'
 import { register } from '../store'
 import BirdTile from './BirdTile'
 import Filters from './App/Filters'
+import { unionBy } from 'lodash'
 
 /* ACTIONS */
 
@@ -18,14 +19,19 @@ export function fetchBirdsByHabitat (habitat) {
   }
 }
 
+export const FETCH_BIRD = 'birds/FETCH_BIRD'
+export function fetchBird (id) {
+  return {
+    type: FETCH_BIRD,
+    payload: { promise: Api.get(`/birds/${id}`) }
+  }
+}
+
 /* REDUCER */
 
 export const initialState = {
   isFetching: false,
-  birds: Object.keys(habitats).reduce((obj, key) => {
-    obj[key] = []
-    return obj
-  }, {})
+  birds: []
 }
 
 export function reducer (state = initialState, action) {
@@ -36,10 +42,12 @@ export function reducer (state = initialState, action) {
       return {
         ...state,
         isFetching: false,
-        birds: {
-          ...state.birds,
-          [action.payload.habitat]: action.payload.data
-        }
+        birds: unionBy(state.birds, action.payload.data, 'id')
+      }
+    case resolve(FETCH_BIRD):
+      return {
+        ...state,
+        birds: unionBy(state.birds, [action.payload.data], 'id')
       }
     default:
       return state
@@ -52,53 +60,51 @@ register({ birds: reducer })
 
 const stateToProps = (state, props) => ({
   birds: state.birds.birds,
-  habitat: props.params.habitat,
-  birdId: props.params.birdId
+  slug: props.params.slug
 })
 
 class BirdsPage extends Component {
   static propTypes = {
     birds: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
-    habitat: PropTypes.string
+    slug: PropTypes.string
   }
 
   componentDidMount () {
-    const { habitat, dispatch } = this.props
+    const { slug, dispatch } = this.props
 
-    dispatch(fetchBirdsByHabitat(habitat))
+    dispatch(fetchBirdsByHabitat(slug))
+  }
+
+  handleFoundClick (bird) {
+    return (event) => {
+      console.log(bird, event)
+    }
   }
 
   render () {
-    const { habitat, isFetching } = this.props
-    const birds = this.props.birds[habitat]
+    const { slug, isFetching } = this.props
+    const birds = this.props.birds[slug]
 
     if (isFetching) {
       return <h1>Loading</h1>
     }
 
-    let { birdId } = this.props
-    let shownBird
-    if (birdId) {
-      birdId = parseInt(birdId, 10)
-      shownBird = birds.find((bird) => bird.id === birdId)
-    }
-
     return <div className='BirdsPage'>
-      <Header title={habitats[habitat]} backButton />
-      {shownBird && <GiantModal bird={shownBird} />}
+      <Header title={habitats[slug]} backButton />
       <Filters searchIsFocused={false} />
       <div className='BirdTiles'>
         {birds.map((bird) => (
-          <BirdTile key={bird.id} { ...{bird, habitat} } />
+          <BirdTile
+            key={bird.id}
+            to={`/birds/${bird.id}`}
+            bird={bird}
+            onFoundClick={::this.handleFoundClick(bird)}
+          />
         ))}
       </div>
     </div>
   }
-}
-
-function GiantModal ({ bird }) {
-  return <div><h1>GIANT MODAL WITH {bird.name}</h1></div>
 }
 
 export default connect(stateToProps)(BirdsPage)

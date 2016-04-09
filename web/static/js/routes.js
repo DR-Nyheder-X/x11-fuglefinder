@@ -6,13 +6,14 @@ import { Route, IndexRoute } from 'react-router'
 import App from './components/App'
 import HabitatsPage from './components/HabitatsPage'
 import BirdsPage from './components/BirdsPage'
+import BirdPage from './components/BirdPage'
 import SightingsPage from './components/SightingsPage'
 
 export default (
   <Route path='/' component={App}>
-    <Route path='habitats/:habitat/:birdId' component={BirdsPage} />
-    <Route path='habitats/:habitat' component={BirdsPage} />
+    <Route path='habitats/:slug' component={BirdsPage} />
     <Route path='habitats' component={HabitatsPage} />
+    <Route path='birds/:id' component={BirdPage} />
     <Route path='sightings' component={SightingsPage} />
     <IndexRoute component={HabitatsPage} />
     {__DEV &&

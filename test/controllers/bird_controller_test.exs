@@ -35,7 +35,7 @@ defmodule Birdie.BirdControllerTest do
   end
 
   test "shows chosen resource", %{conn: conn} do
-    bird = Repo.insert! %Bird{}
+    bird = Repo.insert! %Bird{wikipedia_url: "a"}
     conn = get conn, admin_bird_path(conn, :show, bird)
     assert html_response(conn, 200) =~ "Show bird"
   end

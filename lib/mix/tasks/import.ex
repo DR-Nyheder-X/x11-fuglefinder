@@ -24,10 +24,10 @@ defmodule Mix.Tasks.Birdie.Import do
   end
 
   defp insert_bird line do
-    [ _, name, latin_name, _, wikipedia_url,
-      rarity, size, habitats, fact ] = Enum.take(line, 9)
+    [ _, name, latin_name, _english, wikipedia_url,
+      sex, rarity, size, habitats, fact ] = Enum.take(line, 10)
 
-    attrs = ~m(name latin_name wikipedia_url rarity size fact)a
+    attrs = ~m(name latin_name wikipedia_url sex rarity size fact)a
             |> format_rarity
 
     habitats = find_habitats habitats

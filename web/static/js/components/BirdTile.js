@@ -4,7 +4,7 @@ import Rating from './App/Rating'
 import classname from 'classname'
 import './BirdTile.css'
 
-export default function BirdTile ({ bird, habitat, found }) {
+export default function BirdTile ({ bird, to, found, onFoundClick }) {
   const cls = classname('BirdTile', {
     'BirdTile--found': found
   })
@@ -12,18 +12,18 @@ export default function BirdTile ({ bird, habitat, found }) {
   return <div className={cls}>
     <div className='BirdTile-inner'>
       <header className='BirdTile-header'>
-        <Link to={`/habitats/${habitat}/${bird.id}`}>
+        <Link to={to}>
           {bird.name}
         </Link>
-        <button className='BirdTile-found'></button>
+        <button className='BirdTile-found' onClick={onFoundClick}></button>
       </header>
       <div className='BirdTile-image'>
-        <Link to={`/habitats/${habitat}/${bird.id}`}>
+        <Link to={to}>
           <img src='http://thunderfluff.com/fuglefinder/bird.jpg' />
         </Link>
       </div>
       <div className='BirdTile-rating'>
-        <Rating rating={1} />
+        <Rating rating={bird.rarity} />
       </div>
     </div>
   </div>
@@ -31,6 +31,7 @@ export default function BirdTile ({ bird, habitat, found }) {
 
 BirdTile.propTypes = {
   bird: PropTypes.object.isRequired,
-  habitat: PropTypes.string.isRequired,
-  found: PropTypes.bool
+  to: PropTypes.string.isRequired,
+  found: PropTypes.bool,
+  onFoundClick: PropTypes.func
 }
