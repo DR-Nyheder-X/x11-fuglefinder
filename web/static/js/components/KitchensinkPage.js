@@ -8,8 +8,11 @@ import Card from './App/Card'
 import './Kitchensink.css'
 
 const sampleBird = {
-  name: "Splitfjamset snydestær",
-  rarity: 3
+  name: 'Splitfjamset snydestær',
+  rarity: 3,
+  picture: {
+    tile: 'http://placehold.it/250x250'
+  }
 }
 
 export default class KitchensinkPage extends Component {
@@ -17,10 +20,8 @@ export default class KitchensinkPage extends Component {
     return <div className='Kitchensink'>
       <Header />
       <Header title='Ellen Page' />
-      <Header title='Jimmy Page' backButton />
+      <Header title='Jimmy Page' showBackButton dispatch={() => {}} />
       <Filters />
-      <Filters searchIsFocused />
-      <Filters sizeDropdownIsOpen />
       <img style={{width: '100%'}} src='http://s3.amazonaws.com/wolty/media/56/original/Kitchen_Sink.jpeg?1305542976' />
       <ShareNotice />
       <BirdTileCompact title='Bitter svulmeklyde' />
@@ -29,10 +30,10 @@ export default class KitchensinkPage extends Component {
       <Card title='Sjatfedtet stumflamingo' found />
       <Card title='Sjatfedtet stumflamingo' fitForModal />
       <Card title='Sjatfedtet stumflamingo' found fitForModal />
-        <div className='BirdTiles'>
-          <BirdTile bird={sampleBird} to={'/'} found />
-          <BirdTile bird={sampleBird} to={'/'} />
-        </div>
+      <div className='BirdTiles'>
+        <BirdTile bird={sampleBird} to={'/'} found />
+        <BirdTile bird={sampleBird} to={'/'} />
+      </div>
     </div>
   }
 }

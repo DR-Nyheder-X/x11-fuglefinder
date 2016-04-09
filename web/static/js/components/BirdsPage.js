@@ -101,7 +101,7 @@ class BirdsPage extends Component {
   }
 
   render () {
-    const { slug, isFetching } = this.props
+    const { slug, isFetching, dispatch } = this.props
     const birds = this.props.birds
 
     if (isFetching) {
@@ -109,7 +109,7 @@ class BirdsPage extends Component {
     }
 
     return <div className='BirdsPage'>
-      <Header title={habitats[slug]} backButton />
+      <Header title={habitats[slug]} showBackButton to='/' dispatch={dispatch} />
       <Filters searchIsFocused={false} />
       <div className='BirdTiles'>
         {birds.map((bird) => (
