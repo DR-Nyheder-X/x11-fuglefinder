@@ -125,6 +125,4 @@ class BirdsPage extends Component {
   }
 }
 
-const bySlug = (slug) => (bird) => bird.habitats.includes(slug)
-
 export default connect(stateToProps)(BirdsPage)
