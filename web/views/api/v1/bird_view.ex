@@ -1,5 +1,6 @@
 defmodule Birdie.Api.V1.BirdView do
   use Birdie.Web, :view
+  import Birdie.BirdView, only: [bird_image_url: 2]
 
   def render "index.json", %{birds: birds, habitat: habitat} do
     %{
@@ -21,7 +22,14 @@ defmodule Birdie.Api.V1.BirdView do
       wikipedia_url: bird.wikipedia_url,
       rarity: bird.rarity,
       size: bird.size,
-      habitats: Enum.map(bird.habitats, &(&1.slug))
+      habitats: Enum.map(bird.habitats, &(&1.slug)),
+      picture: pictures_for(bird)
     }
+  end
+
+  defp pictures_for bird do
+    Enum.reduce(Birdie.Picture.versions, %{}, fn (vers, map) ->
+      Map.put(map, vers, bird_image_url(bird, vers))
+    end)
   end
 end
