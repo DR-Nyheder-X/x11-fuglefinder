@@ -59,6 +59,13 @@ const stateToProps = (state) => ({
 })
 
 class Filters extends Component {
+  static propTypes = {
+    searchFocused: PropTypes.bool.isRequired,
+    open: PropTypes.bool.isRequired,
+    size: PropTypes.string,
+    query: PropTypes.string.isRequired
+  }
+
   handleSizeChange (event) {
     this.props.dispatch(setSize(event.target.value))
   }
@@ -139,13 +146,6 @@ class Filters extends Component {
       </div>
     </div>
   }
-}
-
-Filters.propTypes = {
-  searchFocused: PropTypes.bool.isRequired,
-  open: PropTypes.bool.isRequired,
-  size: PropTypes.string,
-  query: PropTypes.string.isRequired
 }
 
 export default connect(stateToProps)(Filters)
