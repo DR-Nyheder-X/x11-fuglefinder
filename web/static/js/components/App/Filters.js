@@ -128,15 +128,15 @@ class Filters extends Component {
       <div className='Filters-size'>
         <form className='Filters-size-dropdown' onChange={::this.handleSizeChange}>
           <div>
-            <input type='radio' name='size' value='small' id='small' />
+            <input type='radio' name='size' value='S' id='small' />
             <label htmlFor='small'>Lille</label>
           </div>
           <div>
-            <input type='radio' name='size' value='medium' id='medium' />
+            <input type='radio' name='size' value='M' id='medium' />
             <label htmlFor='medium'>Mellem</label>
           </div>
           <div>
-            <input type='radio' name='size' value='large' id='large' />
+            <input type='radio' name='size' value='L' id='large' />
             <label htmlFor='large'>Stor</label>
           </div>
           <svg width='17px' height='8px' viewBox='0 0 17 8' version='1.1'>

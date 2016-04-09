@@ -62,10 +62,23 @@ register({ birds: reducer })
 
 const stateToProps = (state, props) => {
   const slug = props.params.slug
+  const filters = state.filters
+
   return {
     slug,
-    birds: state.birds.birds.filter(bySlug(slug))
+    birds: filterBirds(state.birds.birds, { slug, filters })
   }
+}
+
+const filterBirds = (birds, { slug, filters }) => {
+  return birds.filter((bird) => {
+    if (!bird.habitats.includes(slug)) { return false }
+    if (filters.size && bird.size !== filters.size) { return false }
+    if (filters.query !== '' &&
+        !bird.name.toLowerCase().includes(filters.query)) { return false }
+
+    return true
+  })
 }
 
 class BirdsPage extends Component {
