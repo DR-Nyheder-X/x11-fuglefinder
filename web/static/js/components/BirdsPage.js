@@ -7,6 +7,7 @@ import Api from '../lib/Api'
 import { register } from '../store'
 import BirdTile from './BirdTile'
 import Filters from './App/Filters'
+import { unionBy } from 'lodash'
 
 /* ACTIONS */
 
@@ -18,14 +19,19 @@ export function fetchBirdsByHabitat (habitat) {
   }
 }
 
+export const FETCH_BIRD = 'birds/FETCH_BIRD'
+export function fetchBird (id) {
+  return {
+    type: FETCH_BIRD,
+    payload: { promise: Api.get(`/birds/${id}`) }
+  }
+}
+
 /* REDUCER */
 
 export const initialState = {
   isFetching: false,
-  birds: Object.keys(habitats).reduce((obj, key) => {
-    obj[key] = []
-    return obj
-  }, {})
+  birds: []
 }
 
 export function reducer (state = initialState, action) {
@@ -36,10 +42,12 @@ export function reducer (state = initialState, action) {
       return {
         ...state,
         isFetching: false,
-        birds: {
-          ...state.birds,
-          [action.payload.habitat]: action.payload.data
-        }
+        birds: unionBy(state.birds, action.payload.data, 'id')
+      }
+    case resolve(FETCH_BIRD):
+      return {
+        ...state,
+        birds: unionBy(state.birds, [action.payload.data], 'id')
       }
     default:
       return state

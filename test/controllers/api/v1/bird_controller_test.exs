@@ -1,6 +1,6 @@
 defmodule Birdie.Api.V1.BirdControllerTest do
   use Birdie.ConnCase
-  alias Birdie.{Repo, User, Bird, Habitat}
+  alias Birdie.{Repo, Bird, Habitat}
 
   test "GET index with no habitat", %{conn: conn} do
     Repo.insert! %Bird{name: "John"}
