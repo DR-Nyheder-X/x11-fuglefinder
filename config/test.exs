@@ -6,6 +6,9 @@ config :birdie, Birdie.Endpoint,
   http: [port: 4001],
   server: false
 
+config :birdie,
+  volume_path: "/tmp"
+
 # Print only warnings and errors during test
 config :logger, level: :warn
 

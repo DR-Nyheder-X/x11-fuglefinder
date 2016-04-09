@@ -8,7 +8,8 @@ import Card from './App/Card'
 import './Kitchensink.css'
 
 const sampleBird = {
-  name: "Splitfjamset snydestær"
+  name: "Splitfjamset snydestær",
+  rarity: 3
 }
 
 export default class KitchensinkPage extends Component {
@@ -28,10 +29,10 @@ export default class KitchensinkPage extends Component {
       <Card title='Sjatfedtet stumflamingo' found />
       <Card title='Sjatfedtet stumflamingo' fitForModal />
       <Card title='Sjatfedtet stumflamingo' found fitForModal />
-      <div className='BirdTiles'>
-        <BirdTile bird={sampleBird} habitat={'coast'} found />
-        <BirdTile bird={sampleBird} habitat={'coast'} />
-      </div>
+        <div className='BirdTiles'>
+          <BirdTile bird={sampleBird} to={'/'} found />
+          <BirdTile bird={sampleBird} to={'/'} />
+        </div>
     </div>
   }
 }

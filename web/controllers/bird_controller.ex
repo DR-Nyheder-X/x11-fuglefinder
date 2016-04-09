@@ -1,7 +1,7 @@
 defmodule Birdie.BirdController do
   use Birdie.Web, :controller
 
-  alias Birdie.Bird
+  alias Birdie.{Bird, Habitat}
 
   plug :scrub_params, "bird" when action in [:create, :update]
 
@@ -13,7 +13,7 @@ defmodule Birdie.BirdController do
 
   def new(conn, _params) do
     changeset = Bird.changeset(%Bird{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, habitats: Repo.all(Habitat))
   end
 
   def create(conn, %{"bird" => bird_params}) do
@@ -25,23 +25,23 @@ defmodule Birdie.BirdController do
         |> put_flash(:info, "Bird created successfully.")
         |> redirect(to: admin_bird_path(conn, :index))
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "new.html", changeset: changeset, habitats: Repo.all(Habitat))
     end
   end
 
   def show(conn, %{"id" => id}) do
-    bird = Repo.get!(Bird, id)
+    bird = Repo.get!(Bird, id) |> Repo.preload([:habitats])
     render(conn, "show.html", bird: bird)
   end
 
   def edit(conn, %{"id" => id}) do
-    bird = Repo.get!(Bird, id)
+    bird = Repo.get!(Bird, id) |> Repo.preload([:habitats])
     changeset = Bird.changeset(bird)
-    render(conn, "edit.html", bird: bird, changeset: changeset)
+    render(conn, "edit.html", bird: bird, changeset: changeset, habitats: Repo.all(Habitat))
   end
 
   def update(conn, %{"id" => id, "bird" => bird_params}) do
-    bird = Repo.get!(Bird, id)
+    bird = Repo.get!(Bird, id) |> Repo.preload([:habitats])
     changeset = Bird.changeset(bird, bird_params)
 
     case Repo.update(changeset) do
@@ -50,7 +50,7 @@ defmodule Birdie.BirdController do
         |> put_flash(:info, "Bird updated successfully.")
         |> redirect(to: admin_bird_path(conn, :show, bird))
       {:error, changeset} ->
-        render(conn, "edit.html", bird: bird, changeset: changeset)
+        render(conn, "edit.html", bird: bird, changeset: changeset, habitats: Repo.all(Habitat))
     end
   end
 

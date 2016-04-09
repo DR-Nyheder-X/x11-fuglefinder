@@ -1,6 +1,14 @@
 <h2>Show bird</h2>
 
 <ul>
+  <li>
+    <strong>Picture:</strong>
+    <%= if @bird.picture do %>
+      <%= bird_image @bird, :single %>
+    <% else %>
+      No image
+    <% end %>
+  </li>
 
   <li>
     <strong>Name:</strong>
@@ -8,8 +16,27 @@
   </li>
 
   <li>
+    <strong>Latin Name:</strong>
+    <%= @bird.latin_name %>
+  </li>
+
+  <li>
+    <strong>Wikipedia:</strong>
+    <%= link @bird.wikipedia_url, to: @bird.wikipedia_url %>
+  </li>
+
+  <li>
     <strong>Fact:</strong>
     <%= @bird.fact %>
+  </li>
+
+  <li>
+    <strong>Habitats:</strong>
+    <ul>
+      <%= for habitat <- @bird.habitats do %>
+        <li><%= habitat.name %></li>
+      <% end %>
+    </ul>
   </li>
 
 </ul>

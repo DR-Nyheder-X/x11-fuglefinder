@@ -17,6 +17,7 @@
     "css-loader": "^0.23.1",
     "fastclick": "^1.0.6",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.9.0",
     "postcss-browser-reporter": "^0.4.0",
     "postcss-cssnext": "^2.5.1",
     "postcss-import": "^8.0.2",
