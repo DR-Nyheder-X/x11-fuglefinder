@@ -30,5 +30,5 @@ export default class Rating extends Component {
 
 Rating.propTypes = {
   title: PropTypes.string,
-  rating: PropTypes.number //1..5
+  rating: PropTypes.number // 1..5
 }
