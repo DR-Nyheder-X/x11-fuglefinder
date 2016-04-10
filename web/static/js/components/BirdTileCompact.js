@@ -12,12 +12,12 @@ export default function BirdTileCompact ({ title, found }) {
   return <div className={cls}>
     <div className='BirdTileCompact-inner'>
       <header className='BirdTileCompact-header'>
-        <Link to={`#`}>
+        <Link to='/'>
           {title}
         </Link>
       </header>
       <div className='BirdTileCompact-image'>
-        <Link to={`#`}>
+        <Link to='/'>
           <img src='http://thunderfluff.com/fuglefinder/bird.jpg' />
         </Link>
       </div>
