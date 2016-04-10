@@ -5,6 +5,9 @@ defmodule Birdie.User do
   schema "users" do
     field :token, :string
 
+    has_many :sightings, Birdie.Sighting
+    has_many :birds, through: [:sightings, :bird]
+
     timestamps
   end
 

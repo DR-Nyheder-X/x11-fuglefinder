@@ -1,18 +1,16 @@
 defmodule Birdie.SightingTest do
   use Birdie.ModelCase
+  import Birdie.Factory
 
   alias Birdie.Sighting
 
-  @valid_attrs %{lat: "120.5", lng: "120.5"}
-  @invalid_attrs %{}
-
   test "changeset with valid attributes" do
-    changeset = Sighting.changeset(%Sighting{}, @valid_attrs)
+    changeset = Sighting.changeset(%Sighting{}, fields_for(:sighting))
     assert changeset.valid?
   end
 
   test "changeset with invalid attributes" do
-    changeset = Sighting.changeset(%Sighting{}, @invalid_attrs)
+    changeset = Sighting.changeset(%Sighting{}, %{})
     refute changeset.valid?
   end
 end

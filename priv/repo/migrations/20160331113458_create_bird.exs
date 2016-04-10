@@ -13,8 +13,5 @@ defmodule Birdie.Repo.Migrations.CreateBird do
 
       timestamps
     end
-
-    index :birds, [:name], unique: true
-    index :birds, [:size]
   end
 end

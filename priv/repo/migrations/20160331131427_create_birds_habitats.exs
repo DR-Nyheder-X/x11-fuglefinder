@@ -6,7 +6,5 @@ defmodule Birdie.Repo.Migrations.CreateBirdsHabitats do
       add :bird_id, references(:birds)
       add :habitat_id, references(:habitats)
     end
-
-    index :birds_habitats, [:bird_id, :habitat_id]
   end
 end
