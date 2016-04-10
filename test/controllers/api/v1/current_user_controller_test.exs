@@ -21,7 +21,7 @@ defmodule Birdie.Api.V1.CurrentUserControllerTest do
 
   test "GET show without header" do
     conn = get(conn, api_v1_current_user_path(conn, :show))
-    assert "unauthorized" == response(conn, 422)
+    assert "unauthorized" == response(conn, 401)
   end
 
   test "GET show with bad header" do
@@ -29,6 +29,6 @@ defmodule Birdie.Api.V1.CurrentUserControllerTest do
     |> sign_in(%Birdie.User{token: "monkeyface"})
     |> get(api_v1_current_user_path(conn, :show))
 
-    assert "unauthorized" == response(conn, 422)
+    assert "unauthorized" == response(conn, 401)
   end
 end

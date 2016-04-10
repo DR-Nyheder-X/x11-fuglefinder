@@ -19,6 +19,8 @@ defmodule Birdie.Router do
     post "/current_user", Api.V1.CurrentUserController, :create
     get "/current_user", Api.V1.CurrentUserController, :show
     resources "/birds", Api.V1.BirdController, only: [:index, :show]
+    post "/sightings", Api.V1.SightingController, :create
+    delete "/sightings", Api.V1.SightingController, :delete
   end
 
   scope "/admin", Birdie, as: "admin" do

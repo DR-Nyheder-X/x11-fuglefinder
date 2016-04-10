@@ -8,6 +8,5 @@ defmodule Birdie.Repo.Migrations.CreateSighting do
 
       timestamps
     end
-
   end
 end

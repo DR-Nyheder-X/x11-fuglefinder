@@ -10,7 +10,7 @@ defmodule Birdie.Api.V1.CurrentUserController do
       {:ok, user} ->
         conn
         |> put_status(:created)
-        |> render("show.json", user: user)
+        |> render("show.json", user: user |> Repo.preload(:birds))
       {:error, error} ->
         conn
         |> put_status(:unprocessable_entity)
@@ -19,6 +19,7 @@ defmodule Birdie.Api.V1.CurrentUserController do
   end
 
   def show conn, _params do
-    render conn, "show.json", user: conn.assigns.current_user
+    user = conn.assigns.current_user |> Repo.preload(:birds)
+    render conn, "show.json", user: user
   end
 end

@@ -7,6 +7,5 @@ defmodule Birdie.Repo.Migrations.CreateUser do
 
       timestamps
     end
-
   end
 end

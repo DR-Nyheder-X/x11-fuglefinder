@@ -11,7 +11,7 @@ defmodule Birdie.Plugs.Authenticate do
         |> assign(:current_user, user)
       {:error, _} ->
         conn
-        |> send_resp(422, "unauthorized")
+        |> send_resp(401, "unauthorized")
         |> halt
     end
   end

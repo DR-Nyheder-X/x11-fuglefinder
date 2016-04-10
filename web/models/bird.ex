@@ -16,6 +16,9 @@ defmodule Birdie.Bird do
     many_to_many :habitats, Birdie.Habitat,
       join_through: "birds_habitats", on_delete: :delete_all
 
+    has_many :sightings, Birdie.Sighting
+    has_many :users, through: [:sightings, :user]
+
     timestamps
   end
 

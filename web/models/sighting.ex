@@ -5,11 +5,14 @@ defmodule Birdie.Sighting do
     field :lat, :float
     field :lng, :float
 
+    belongs_to :user, Birdie.User
+    belongs_to :bird, Birdie.Bird
+
     timestamps
   end
 
-  @required_fields ~w(lat lng)a
-  @optional_fields ~w()a
+  @required_fields ~w(user_id bird_id)a
+  @optional_fields ~w(lat lng)a
 
   @doc """
   Creates a changeset based on the `model` and `params`.

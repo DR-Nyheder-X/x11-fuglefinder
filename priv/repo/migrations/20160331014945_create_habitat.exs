@@ -8,6 +8,5 @@ defmodule Birdie.Repo.Migrations.CreateHabitat do
 
       timestamps
     end
-
   end
 end
