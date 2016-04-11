@@ -9,18 +9,13 @@
   background-position: bottom right;
   height: $headerHeight;
   box-shadow: 0 3px 0 0 rgba(165, 142, 43, .16);
-  position: fixed;
-  top: 0;
-  width: 100%;
   margin-bottom: 11px;
   display: flex;
-  z-index: 999;
+  align-items: center;
 }
 
 .Header-logo {
-  position: absolute;
-  top: 10px;
-  left: 12px;
+  margin-left: 12px;
 
   h1 {
     text-transform: uppercase;
