@@ -11,7 +11,9 @@
     <link rel='stylesheet' href='<%= static_path(@conn, "/admin.css") %>' />
   </head>
   <body>
-    <%= render @view_module, @view_template, assigns %>
+    <div class='container'>
+      <%= render @view_module, @view_template, assigns %>
+    </div>
     <%= if Mix.env == :dev do %>
       <script src='//localhost:4001/admin.bundle.js'></script>
     <% else %>
