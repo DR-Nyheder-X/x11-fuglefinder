@@ -7,7 +7,7 @@ Repo.delete_all(Habitat)
 habitats = %{
   coast: "Kyst",
   farmland: "Dyrket land",
-  meadows: "Enge",
+  meadows: "Åbent land",
   moore: "Hede",
   woods: "Skov",
   city: "By",
