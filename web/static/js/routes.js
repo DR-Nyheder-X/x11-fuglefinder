@@ -9,8 +9,6 @@ import BirdsPage from './components/BirdsPage'
 import BirdPage from './components/BirdPage'
 import SightingsPage from './components/SightingsPage'
 
-import UI from './components/UI'
-
 export default (<Route>
   <Route path='/' component={App}>
     <Route path='habitats/:slug' component={BirdsPage} />
@@ -25,5 +23,4 @@ export default (<Route>
       />
     }
   </Route>
-  <Route path='test' component={UI} />
 </Route>)

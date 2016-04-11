@@ -7,7 +7,7 @@ import {
   Description,
   Footer
 } from './App/Card'
-import Header from './App/Header'
+import Navigation, { Header, Content } from './Navigation'
 
 const stateToProps = (state, props) => {
   const id = parseInt(props.params.id, 10)
@@ -39,13 +39,15 @@ class BirdPage extends Component {
       return <div>...</div>
     }
 
-    return <div>
+    return <Navigation>
       <Header showBackButton dispatch={dispatch} />
-      <CardHeader bird={bird} />
-      <Image bird={bird} />
-      <Description bird={bird} />
-      <Footer bird={bird} found={false} />
-    </div>
+      <Content>
+        <CardHeader bird={bird} />
+        <Image bird={bird} />
+        <Description bird={bird} />
+        <Footer bird={bird} found={false} />
+      </Content>
+    </Navigation>
   }
 }
 

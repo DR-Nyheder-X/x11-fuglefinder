@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Header from './App/Header'
 import FullPageNotice from './App/FullPageNotice'
 import Api from '../lib/Api'
 import { register } from '../store'
+import Navigation, { Header, Content } from './Navigation'
 
 /* ACTIONS */
 
@@ -39,12 +39,14 @@ class SightingsPage extends Component {
   render () {
     const { sightings } = this.props
 
-    return <div>
+    return <Navigation>
       <Header title='Mine fund' />
-      {sightings.length === 0 && (
-        <FullPageNotice to='/' buttonText='Find din første fugl' text='Du har ikke spottet nogen fugle endnu. På med kikkerten.' />
-      )}
-    </div>
+      <Content>
+        {sightings.length === 0 && (
+          <FullPageNotice to='/' buttonText='Find din første fugl' text='Du har ikke spottet nogen fugle endnu. På med kikkerten.' />
+        )}
+      </Content>
+    </Navigation>
   }
 }
 

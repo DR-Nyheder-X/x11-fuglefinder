@@ -1,5 +1,5 @@
-@import '../lib/variables';
-@import '../lib/mixins';
+@import '../../lib/variables';
+@import '../../lib/mixins';
 
 .Navigation {
   display: flex;
@@ -13,7 +13,6 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.NavigationHeader {
+.Header {
   flex: 0 0 auto;
-  background: $creamDark;
 }
