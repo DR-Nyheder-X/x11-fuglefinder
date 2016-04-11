@@ -5,8 +5,7 @@ import invariant from 'invariant'
 
 export default function Header ({ showBackButton, title, to, dispatch }) {
   if (showBackButton) {
-    invariant(typeof dispatch === 'function',
-              'dispatch required for backButton')
+    invariant(typeof dispatch === 'function', 'dispatch required for backButton')
   }
 
   const handleBackClick = () => {

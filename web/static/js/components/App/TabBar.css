@@ -2,15 +2,18 @@
 @import '../../lib/mixins';
 
 .TabBar {
-  height: 100vh;
   display: flex;
   flex-flow: column nowrap;
 }
 
 .TabBarContent {
   flex: 1 1 auto;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  display: flex;
+
+  & > div {
+    width: 100%;
+  }
 }
 
 .TabBarNavigation {
