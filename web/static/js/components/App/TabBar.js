@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import classname from 'classname'
 import './TabBar.css'
-import './TabBarNavigation.css'
 
 export default function TabBar ({ children }) {
   return <div className='TabBar'>
@@ -23,10 +22,6 @@ TabBarButton.propTypes = {
   active: PropTypes.bool,
   children: PropTypes.node,
   to: PropTypes.string
-}
-
-TabBarButton.defaultProps = {
-  active: false
 }
 
 export function TabBarContent ({ children }) {

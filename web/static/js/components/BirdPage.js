@@ -1,7 +1,12 @@
 import React, { Component, PropTypes } from 'react'
 import { fetchBird } from './BirdsPage'
 import { connect } from 'react-redux'
-import Card from './App/Card'
+import {
+  Header as CardHeader,
+  Image,
+  Description,
+  Footer
+} from './App/Card'
 import Header from './App/Header'
 
 const stateToProps = (state, props) => {
@@ -30,9 +35,16 @@ class BirdPage extends Component {
   render () {
     const { bird, dispatch } = this.props
 
+    if (!bird) {
+      return <div>...</div>
+    }
+
     return <div>
       <Header showBackButton dispatch={dispatch} />
-      <Card bird={bird} />
+      <CardHeader bird={bird} />
+      <Image bird={bird} />
+      <Description bird={bird} />
+      <Footer bird={bird} found={false} />
     </div>
   }
 }

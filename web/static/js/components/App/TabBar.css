@@ -12,3 +12,37 @@
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+
+.TabBarNavigation {
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-flow: row nowrap;
+  height: $headerHeight;
+
+  background: $creamDark;
+}
+
+.TabBarButton {
+  @include blockyText;
+
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+
+  color: $creamDarkest;
+}
+
+/* Center line */
+.TabBarButton {
+  box-shadow: inset -1px 0 0 $creamDarker, inset 1px 0 0 $creamDarker;
+}
+.TabBarButton:first-child  { box-shadow: inset -1px 0 0 $creamDarker; }
+.TabBarButton:last-child { box-shadow: inset 1px 0 0 $creamDarker; }
+
+/* Active states */
+.TabBarButton.active { color: $marine; }
+.TabBarButton.active svg path { fill: $marine; }
