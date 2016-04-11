@@ -5,17 +5,20 @@
     <tr>
       <th></th>
       <th>Name</th>
-      <th>Fact</th>
-
+      <th>Habitat</th>
+      <th>Size</th>
+      <th>Rarity</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
 <%= for bird <- @birds do %>
     <tr>
-      <td><%= bird_image bird, :list %></td>
+      <td><img src='<%= bird_image_url bird, :list %>' width=50></td>
       <td><%= bird.name %></td>
       <td><%= Enum.map(bird.habitats, &(&1.name)) |> Enum.join(", ") %></td>
+      <td><%= bird.size %></td>
+      <td><%= Enum.map(1..bird.rarity, fn _ -> "★" end) %></td>
 
       <td class="text-right">
         <%= link "Show", to: admin_bird_path(@conn, :show, bird), class: "btn btn-default btn-xs" %>

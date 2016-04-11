@@ -30,6 +30,18 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :rarity, class: "control-label" %>
+    <%= select f, :rarity, 5..1, class: "form-control" %>
+    <%= error_tag f, :rarity %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :size, class: "control-label" %>
+    <%= select f, :size, ~w(S M L), class: "form-control" %>
+    <%= error_tag f, :size %>
+  </div>
+
+  <div class="form-group">
     <h5>Habitats</h5>
     <%= for habitat <- @habitats do %>
       <label style="display: block">
