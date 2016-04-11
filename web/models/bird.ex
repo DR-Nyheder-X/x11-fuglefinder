@@ -14,7 +14,9 @@ defmodule Birdie.Bird do
     field :habitat_ids, {:array, :integer}, virtual: true
 
     many_to_many :habitats, Birdie.Habitat,
-      join_through: "birds_habitats", on_delete: :delete_all
+      join_through: "birds_habitats",
+      on_delete: :delete_all,
+      on_replace: :delete
 
     has_many :sightings, Birdie.Sighting
     has_many :users, through: [:sightings, :user]
