@@ -7,7 +7,7 @@ $birdTileHeaderHeight: 48px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 4.5px 61px;
+  padding: 0 4.5px $spaceXs;
 }
 
 .BirdTile {
