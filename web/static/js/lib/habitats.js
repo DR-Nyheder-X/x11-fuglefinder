@@ -1,7 +1,7 @@
 export default {
   coast: 'Kyst',
   farmland: 'Dyrket land',
-  meadows: 'Enge',
+  meadows: 'Åbent land',
   moore: 'Hede',
   woods: 'Skov',
   city: 'By',
