@@ -11,8 +11,12 @@ const sampleBird = {
   name: 'Splitfjamset snydestær',
   rarity: 3,
   picture: {
-    tile: 'http://placehold.it/250x250'
-  }
+    tile: 'http://thunderfluff.com/fuglefinder/bird.jpg',
+    single: 'http://thunderfluff.com/fuglefinder/bird.jpg'
+  },
+  fact: 'Har engang været i byen med Jens Okking. De endte på Grok, men det endte ikke godt.',
+  latin_name: 'Coitus Fluxus',
+  english_name: 'Thingamachine'
 }
 
 export default class KitchensinkPage extends Component {
@@ -26,10 +30,10 @@ export default class KitchensinkPage extends Component {
       <ShareNotice />
       <BirdTileCompact title='Bitter svulmeklyde' />
       <BirdTileCompact title='Stenpikker' found />
-      <Card title='Sjatfedtet stumflamingo' />
-      <Card title='Sjatfedtet stumflamingo' found />
-      <Card title='Sjatfedtet stumflamingo' fitForModal />
-      <Card title='Sjatfedtet stumflamingo' found fitForModal />
+      <Card bird={sampleBird} />
+      <Card bird={sampleBird} found />
+      <Card bird={sampleBird} fitForModal />
+      <Card bird={sampleBird} found fitForModal />
       <div className='BirdTiles'>
         <BirdTile bird={sampleBird} to={'/'} found />
         <BirdTile bird={sampleBird} to={'/'} />

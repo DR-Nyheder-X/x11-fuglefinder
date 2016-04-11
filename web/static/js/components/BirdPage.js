@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { fetchBird } from './BirdsPage'
 import { connect } from 'react-redux'
+import Card from './App/Card'
+import Header from './App/Header'
 
 const stateToProps = (state, props) => {
   const id = parseInt(props.params.id, 10)
@@ -26,11 +28,11 @@ class BirdPage extends Component {
   }
 
   render () {
-    const { id, bird } = this.props
+    const { bird, dispatch } = this.props
 
     return <div>
-      {id}
-      {JSON.stringify(bird)}
+      <Header showBackButton dispatch={dispatch} />
+      <Card bird={bird} />
     </div>
   }
 }
