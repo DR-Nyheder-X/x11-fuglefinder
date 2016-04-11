@@ -6,7 +6,9 @@ defmodule Birdie.BirdController do
   plug :scrub_params, "bird" when action in [:create, :update]
 
   def index(conn, _params) do
-    query = from b in Bird, preload: [:habitats]
+    query = from b in Bird,
+      preload: [:habitats],
+      order_by: b.name
     birds = Repo.all(query)
     render(conn, "index.html", birds: birds)
   end

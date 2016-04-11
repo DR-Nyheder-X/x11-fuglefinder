@@ -4,7 +4,9 @@ defmodule Birdie.Api.V1.BirdController do
 
   def index conn, %{"habitat" => slug} do
     habitat = Repo.get_by(Habitat, slug: slug)
-    query = from b in assoc(habitat, :birds), preload: [:habitats]
+    query = from b in assoc(habitat, :birds),
+      preload: [:habitats],
+      order_by: b.name
     render conn, "index.json", birds: Repo.all(query), habitat: habitat
   end
 
