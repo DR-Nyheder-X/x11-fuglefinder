@@ -1,5 +1,9 @@
 @import '../../lib/base.css';
 
+html, body, #root {
+  overflow: hidden;
+}
+
 .App {
   height: 100vh;
 }

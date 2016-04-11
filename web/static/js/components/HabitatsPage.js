@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import HabitatList from './HabitatList'
-import Header from './App/Header'
+import Navigation, { Header, Content } from './Navigation'
 
 export default class HabitatsPage extends Component {
   render () {
-    return <div className='HabitatsPage'>
+    return <Navigation className='HabitatsPage'>
       <Header />
-      <HabitatList />
-    </div>
+      <Content>
+        <HabitatList />
+      </Content>
+    </Navigation>
   }
 }

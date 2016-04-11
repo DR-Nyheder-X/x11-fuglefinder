@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Header from './App/Header'
+import { Header } from './Navigation'
 import Filters from './App/Filters'
 import ShareNotice from './App/ShareNotice'
 import BirdTile from './BirdTile'

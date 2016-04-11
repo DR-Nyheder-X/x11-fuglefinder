@@ -2,24 +2,25 @@
 @import '../lib/mixins';
 
 .HabitatList {
-  display: flex;
-  flex-direction: column;
+  padding-top: $spaceXs;
   padding-right: $spaceXs;
   padding-left: $spaceXs;
-  padding-top: $headerHeight;
   padding-bottom: $headerHeight;
+
   .SectionLink:last-child { margin-bottom: $spaceXs; }
 }
 
 .HabitatList-guide {
-  background: $creamDark;
-  margin-top: 11px;
-  margin-bottom: 9px;
-  height: 44px;
-  color: $creamDarkest;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  margin-bottom: 9px;
+  height: 44px;
+
+  background: $creamDark;
+  color: $creamDarkest;
+
   > span { position: relative; top: -.075em; }
   @media ( min-device-width: 375px ) { height: 74px; font-size: $fontSizeM; }
   @media ( min-device-width: 414px ) {

@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { resolve } from 'redux-simple-promise'
 import habitats from '../lib/habitats'
-import Header from './App/Header'
+import Navigation, { Header, Content } from './Navigation'
 import Api from '../lib/Api'
 import { register } from '../store'
 import BirdTile from './BirdTile'
@@ -108,20 +108,22 @@ class BirdsPage extends Component {
       return <h1>Loading</h1>
     }
 
-    return <div className='BirdsPage'>
+    return <Navigation className='BirdsPage'>
       <Header title={habitats[slug]} showBackButton to='/' dispatch={dispatch} />
-      <Filters searchIsFocused={false} />
-      <div className='BirdTiles'>
-        {birds.map((bird) => (
-          <BirdTile
-            key={bird.id}
-            to={`/birds/${bird.id}`}
-            bird={bird}
-            onFoundClick={::this.handleFoundClick(bird)}
-          />
-        ))}
-      </div>
-    </div>
+      <Content>
+        <Filters searchIsFocused={false} />
+        <div className='BirdTiles'>
+          {birds.map((bird) => (
+            <BirdTile
+              key={bird.id}
+              to={`/birds/${bird.id}`}
+              bird={bird}
+              onFoundClick={::this.handleFoundClick(bird)}
+            />
+          ))}
+        </div>
+      </Content>
+    </Navigation>
   }
 }
 

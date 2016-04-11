@@ -4,13 +4,12 @@
 $searchFieldHeight: 43px;
 
 .Filters {
-  margin-top: $headerHeight;
   padding-top: 8px;
   padding-right: $spaceXs;
   padding-left: $spaceXs;
 }
 
-/*form*/.Filters-search {
+.Filters-search {
   background-color: $creamDark;
   border-radius: 2px;
   height: $searchFieldHeight;
