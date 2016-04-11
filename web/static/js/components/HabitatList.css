@@ -2,10 +2,7 @@
 @import '../lib/mixins';
 
 .HabitatList {
-  padding-top: $spaceXs;
-  padding-right: $spaceXs;
-  padding-left: $spaceXs;
-  padding-bottom: $headerHeight;
+  padding: $spaceXs;
 
   .SectionLink:last-child { margin-bottom: $spaceXs; }
 }
