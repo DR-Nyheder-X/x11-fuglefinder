@@ -1,5 +1,7 @@
 defmodule Birdie.Api.V1.CurrentUserControllerTest do
   use Birdie.ConnCase
+  import Birdie.Factory
+  alias Birdie.{Repo, Sighting, User}
 
   test "POST create" do
     conn = post conn, api_v1_current_user_path(conn, :create)
@@ -8,7 +10,10 @@ defmodule Birdie.Api.V1.CurrentUserControllerTest do
   end
 
   test "GET show with header" do
-    {:ok, user} = Birdie.User.create Birdie.Repo
+    {:ok, user} = User.create Repo
+    bird = create :bird
+    _sighting = %Sighting{user_id: user.id, bird_id: bird.id}
+                |> Repo.insert!
 
     conn = conn
             |> sign_in(user)
@@ -26,7 +31,7 @@ defmodule Birdie.Api.V1.CurrentUserControllerTest do
 
   test "GET show with bad header" do
     conn = conn
-    |> sign_in(%Birdie.User{token: "monkeyface"})
+    |> sign_in(%User{token: "monkeyface"})
     |> get(api_v1_current_user_path(conn, :show))
 
     assert "unauthorized" == response(conn, 401)
