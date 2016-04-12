@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { resolve } from 'redux-simple-promise'
+import { without } from 'lodash'
 import { register } from '../../store'
 import Api from '../../lib/Api'
 import TabBar, {
@@ -9,6 +10,7 @@ import TabBar, {
   TabBarNavigation
 } from './TabBar'
 import './App.css'
+import { CREATE_USER_SIGHTING, DELETE_USER_SIGHTING } from '../SightingsPage'
 
 export const FETCH_CURRENT_USER = 'app/FETCH_CURRENT_USER'
 export function fetchCurrentUser () {
@@ -19,13 +21,33 @@ export function fetchCurrentUser () {
 }
 
 const initialState = {
-  current_user: null
+  currentUser: null
 }
 
 export function reducer (state = initialState, action) {
   switch (action.type) {
     case resolve(FETCH_CURRENT_USER):
-      return { ...state, current_user: action.payload.user }
+      return { ...state, currentUser: action.payload.user }
+
+    case CREATE_USER_SIGHTING:
+      return { ...state }
+      // return {
+      //   ...state,
+      //   currentUser: {
+      //     ...state.currentUser,
+      //     birds: state.currentUser.birds.concat([action.payload])
+      //   }
+      // }
+
+    case DELETE_USER_SIGHTING:
+      return { ...state }
+      // return {
+      //   ...state,
+      //   currentUser: {
+      //     ...state.currentUser,
+      //     birds: without(state.currentUser.birds, action.payload)
+      //   }
+      // }
 
     default:
       return state
@@ -35,7 +57,7 @@ export function reducer (state = initialState, action) {
 register({ app: reducer })
 
 const stateToProps = (state) => ({
-  user: state.app.current_user,
+  user: state.app.currentUser,
   pathname: state.routing.locationBeforeTransitions.pathname
 })
 

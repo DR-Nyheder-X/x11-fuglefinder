@@ -7,7 +7,12 @@ import Api from '../lib/Api'
 import { register } from '../store'
 import BirdTile from './BirdTile'
 import Filters from './App/Filters'
-import { unionBy } from 'lodash'
+import { unionBy, includes } from 'lodash'
+import { createUserSighting, deleteUserSighting } from './SightingsPage'
+
+function userHasFound (user, bird) {
+  return includes(user.birds.map((bird) => bird.id), bird.id)
+}
 
 /* ACTIONS */
 
@@ -66,6 +71,7 @@ const stateToProps = (state, props) => {
 
   return {
     slug,
+    currentUser: state.app.currentUser,
     birds: filterBirds(state.birds.birds, { slug, filters })
   }
 }
@@ -94,14 +100,16 @@ class BirdsPage extends Component {
     dispatch(fetchBirdsByHabitat(slug))
   }
 
-  handleFoundClick (bird) {
+  handleFoundClick (bird, found) {
     return (event) => {
-      console.log(bird, event)
+      this.props.dispatch(found
+        ? deleteUserSighting(bird)
+        : createUserSighting(bird))
     }
   }
 
   render () {
-    const { slug, isFetching, dispatch } = this.props
+    const { slug, isFetching, dispatch, currentUser } = this.props
     const birds = this.props.birds
 
     if (isFetching) {
@@ -113,14 +121,16 @@ class BirdsPage extends Component {
       <Content>
         <Filters searchIsFocused={false} />
         <div className='BirdTiles'>
-          {birds.map((bird) => (
-            <BirdTile
+          {birds.map((bird) => {
+            const found = userHasFound(currentUser, bird)
+            return <BirdTile
               key={bird.id}
               to={`/birds/${bird.id}`}
               bird={bird}
-              onFoundClick={::this.handleFoundClick(bird)}
+              onFoundClick={::this.handleFoundClick(bird, found)}
+              found={found}
             />
-          ))}
+          })}
         </div>
       </Content>
     </Navigation>

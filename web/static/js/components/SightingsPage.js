@@ -15,10 +15,17 @@ export function createUserSighting (bird) {
   }
 }
 
+export const DELETE_USER_SIGHTING = 'sightings/DELETE_USER_SIGHTING'
+export function deleteUserSighting (bird) {
+  return {
+    type: DELETE_USER_SIGHTING,
+    payload: { promise: Api.delete('/sightings', { bird_id: bird.id }) }
+  }
+}
+
 /* REDUCER */
 
 export const initialState = {
-  sightings: []
 }
 
 export function reducer (state = initialState, action) {
@@ -32,17 +39,17 @@ register({ sightings: reducer })
 /* COMPONENT */
 
 const stateToProps = (state) => ({
-  sightings: state.sightings.sightings
+  birds: state.app.currentUser.birds
 })
 
 class SightingsPage extends Component {
   render () {
-    const { sightings } = this.props
+    const { birds } = this.props
 
     return <Navigation>
       <Header title='Mine fund' />
       <Content>
-        {sightings.length === 0 && (
+        {birds.length === 0 && (
           <FullPageNotice to='/' buttonText='Find din første fugl' text='Du har ikke spottet nogen fugle endnu. På med kikkerten.' />
         )}
       </Content>
