@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { resolve } from 'redux-simple-promise'
-import { without } from 'lodash'
+// import { without } from 'lodash'
 import { register } from '../../store'
 import Api from '../../lib/Api'
 import TabBar, {
