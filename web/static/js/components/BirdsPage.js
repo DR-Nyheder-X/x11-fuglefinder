@@ -7,12 +7,8 @@ import Api from '../lib/Api'
 import { register } from '../store'
 import BirdTile from './BirdTile'
 import Filters from './App/Filters'
-import { unionBy, includes } from 'lodash'
+import { unionBy, find } from 'lodash'
 import { createUserSighting, deleteUserSighting } from './SightingsPage'
-
-function userHasFound (user, bird) {
-  return includes(user.birds.map((bird) => bird.id), bird.id)
-}
 
 /* ACTIONS */
 
@@ -71,7 +67,7 @@ const stateToProps = (state, props) => {
 
   return {
     slug,
-    currentUser: state.app.currentUser,
+    sightings: state.sightings.sightings,
     birds: filterBirds(state.birds.birds, { slug, filters })
   }
 }
@@ -90,6 +86,7 @@ const filterBirds = (birds, { slug, filters }) => {
 class BirdsPage extends Component {
   static propTypes = {
     birds: PropTypes.arrayOf(PropTypes.object.isRequired),
+    sightings: PropTypes.arrayOf(PropTypes.object.isRequired),
     dispatch: PropTypes.func.isRequired,
     slug: PropTypes.string
   }
@@ -109,7 +106,7 @@ class BirdsPage extends Component {
   }
 
   render () {
-    const { slug, isFetching, dispatch, currentUser } = this.props
+    const { slug, isFetching, dispatch, sightings } = this.props
     const birds = this.props.birds
 
     if (isFetching) {
@@ -122,7 +119,7 @@ class BirdsPage extends Component {
         <Filters searchIsFocused={false} />
         <div className='BirdTiles'>
           {birds.map((bird) => {
-            const found = userHasFound(currentUser, bird)
+            const found = !!find(sightings, { id: bird.id })
             return <BirdTile
               key={bird.id}
               to={`/birds/${bird.id}`}

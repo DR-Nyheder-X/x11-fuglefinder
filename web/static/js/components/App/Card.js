@@ -4,7 +4,7 @@ import Rating from './Rating'
 import classname from 'classname'
 import './Card.css'
 
-export default function Card ({ bird, fitForModal, found }) {
+export default function Card ({ bird, fitForModal, found, onFoundClick, onShareClick }) {
   const cls = classname('Card', {
     'Card--fitForModal': fitForModal,
     'Card--found': found
@@ -15,9 +15,21 @@ export default function Card ({ bird, fitForModal, found }) {
       <Header bird={bird} />
       <Image bird={bird} showControls={false} />
       <Description bird={bird} />
-      <Footer found={found} />
+      <Footer
+        onFoundClick={onFoundClick}
+        onShareClick={onShareClick}
+        found={found}
+      />
     </div>
   </div>
+}
+
+Card.propTypes = {
+  bird: PropTypes.object.isRequired,
+  fitForModal: PropTypes.bool.isRequired,
+  found: PropTypes.bool.isRequired,
+  onFoundClick: PropTypes.func.isRequired,
+  onShareClick: PropTypes.func.isRequired
 }
 
 export function Header ({ bird }) {
@@ -66,10 +78,14 @@ export function Description ({ bird }) {
   </div>
 }
 
-export function Footer ({ found }) {
+export function Footer ({ found, onFoundClick, onShareClick }) {
   return <footer className='Card-footer'>
-    <button className='Card-found'>Den har jeg set!</button>
-    <button className='Card-share'>Del dit fund</button>
+    <button className='Card-found' onClick={onFoundClick}>
+      Den har jeg set!
+    </button>
+    <button className='Card-share' onClick={onShareClick}>
+      Del dit fund
+    </button>
   </footer>
 }
 
