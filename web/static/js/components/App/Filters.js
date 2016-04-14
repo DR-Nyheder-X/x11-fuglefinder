@@ -79,14 +79,10 @@ class Filters extends Component {
   }
 
   handleSearchBlur (event) {
-    setTimeout(() => {
-      this.props.dispatch(setSearchFocus(false))
-    }, 100)
+    this.props.dispatch(setSearchFocus(false))
   }
 
   handleClearSearch (event) {
-    // TODO: Something makes this not get called sometimes.
-    // Maybe way of hiding button messes it up?
     this.props.dispatch(setQuery(''))
   }
 
@@ -102,7 +98,7 @@ class Filters extends Component {
     })
 
     const clearCls = classname('Filters-search-clear', {
-      'Filters-search-clear--visible': searchFocused
+      'Filters-search-clear--visible': query.length > 0
     })
 
     return <div className={cls}>
