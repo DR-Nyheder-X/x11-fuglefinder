@@ -2,7 +2,12 @@ defmodule Birdie.BirdView do
   use Birdie.Web, :view
 
   def member_of_habitat? bird, habitat do
-    Enum.member?(Enum.map(bird.habitats, fn h -> h.id end), habitat.id)
+    case bird.habitats do
+      %Ecto.Association.NotLoaded{} ->
+        false
+      habitats ->
+        Enum.member?(Enum.map(habitats, fn h -> h.id end), habitat.id)
+    end
   end
 
   def bird_image_url bird, size \\ :original do
