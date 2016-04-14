@@ -35,6 +35,9 @@ defmodule Birdie.Router do
   scope "/", Birdie do
     pipe_through :browser
 
+    get "/og", OpenGraphController, :index
+    get "/og/birds/:id", OpenGraphController, :show
+
     get "/*path", PageController, :index
   end
 end
