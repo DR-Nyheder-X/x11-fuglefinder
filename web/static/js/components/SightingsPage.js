@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { unionBy, reject } from 'lodash'
 import { resolve } from 'redux-simple-promise'
-import openShareWindow from '../lib/openShareWindow'
+import fbShareUrl from '../lib/fbShareUrl'
 import FullPageNotice from './App/FullPageNotice'
 import Api from '../lib/Api'
 import { register } from '../store'
@@ -75,14 +75,10 @@ class SightingsPage extends Component {
     birds: PropTypes.arrayOf(PropTypes.object.isRequired)
   }
 
-  handleShareClick (event) {
-    const { currentUserId } = this.props
-    const url = `https://fugle.drdinstem.me/og/users/${currentUserId}`
-    openShareWindow(url)
-  }
-
   render () {
-    const { birds } = this.props
+    const { birds, currentUserId } = this.props
+    const shareUrl =
+      `https://fugle.drdinstem.me/og/users/${currentUserId}`
 
     return <Navigation>
       <Header title='Mine fund' />
@@ -90,7 +86,12 @@ class SightingsPage extends Component {
         {birds.length === 0 && (
           <FullPageNotice to='/' buttonText='Find din første fugl' text='Du har ikke spottet nogen fugle endnu. Frem med kikkerten.' />
         )}
-        {birds.length > 0 && <ShareNotice count={birds.length} onShareClick={::this.handleShareClick} />}
+        {birds.length > 0 && (
+          <ShareNotice
+            count={birds.length}
+            shareUrl={fbShareUrl(shareUrl)}
+          />
+        )}
         {birds.map((bird) => (
           <BirdTileCompact key={bird.id} bird={bird} found />
         ))}
