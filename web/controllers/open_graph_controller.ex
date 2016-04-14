@@ -7,7 +7,7 @@ defmodule Birdie.OpenGraphController do
 
   plug :put_layout, false
 
-  def index conn, %{"id" => id} do
+  def user conn, %{"id" => id} do
     user = Repo.get!(User, id) |> Repo.preload(:birds)
 
     render conn, "redirect.html", [
@@ -18,11 +18,7 @@ defmodule Birdie.OpenGraphController do
     ]
   end
 
-  def index conn, _ do
-    redirect conn, to: "/"
-  end
-
-  def show conn, %{"id" => id} do
+  def bird conn, %{"id" => id} do
     bird = Repo.get!(Bird, id)
 
     render conn, "redirect.html", [

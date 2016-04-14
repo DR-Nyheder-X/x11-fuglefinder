@@ -3,20 +3,15 @@ defmodule Birdie.OpenGraphControllerTest do
   import Birdie.Factory
   alias Birdie.{Repo, User}
 
-  test "GET index with user id" do
+  test "GET user" do
     {:ok, user} = User.create Repo
-    conn = get conn, open_graph_path(conn, :index, id: user.id)
-    assert html_response(conn, 200)
+    conn = get conn, open_graph_path(conn, :user, user.id)
+    assert html_response(conn, 200) =~ ~r{Ikke for at prale}
   end
 
-  test "GET index" do
-    conn = get conn, open_graph_path(conn, :index)
-    assert redirected_to(conn, 302) == "/"
-  end
-
-  test "GET show with bird" do
-    bird = create :bird
-    conn = get conn, open_graph_path(conn, :show, bird.id)
-    assert html_response(conn, 200)
+  test "GET bird" do
+    bird = create :bird, name: "John"
+    conn = get conn, open_graph_path(conn, :bird, bird.id)
+    assert html_response(conn, 200) =~ ~r{John}
   end
 end
