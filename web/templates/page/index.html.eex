@@ -7,7 +7,17 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon" href="<%= static_path(@conn, "/apple-touch-icon.png") %>">
-    <title>Fugle</title>
+
+    <meta property="og:title" content="DR: Det Store Fugletræk">
+    <meta property="og:url" content="https://fugle.drdinstem.me">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://s3.brnbw.com/deal-with-it-bird.jpg">
+    <meta property="og:site_name" content="DR: Det Store Fugletræk">
+    <meta property="fb:admins" content="mikkelmalmberg">
+    <meta property="fb:app_id" content="469433496581008">
+    <meta property="og:description" content="Find, saml og udforsk alle de spændende fugle, der er i den danske natur!">
+
+    <title>DR: Det Store Fugletræk</title>
   </head>
   <body>
     <div id="root"></div>
