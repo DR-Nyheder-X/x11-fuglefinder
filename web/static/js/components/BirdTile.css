@@ -14,6 +14,11 @@ $birdTileHeaderHeight: 48px;
   width: 50%;
   padding: $spaceXs 4.5px 0;
   position: relative;
+
+  img {
+    min-height: 40px;
+    background-color: rgba(#000, .2);
+  }
 }
 
 .BirdTile-inner {

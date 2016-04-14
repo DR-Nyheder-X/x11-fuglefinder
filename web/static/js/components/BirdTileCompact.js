@@ -4,31 +4,27 @@ import Rating from './App/Rating'
 import classname from 'classname'
 import './BirdTileCompact.css'
 
-export default function BirdTileCompact ({ title, found }) {
+export default function BirdTileCompact ({ bird, found }) {
   const cls = classname('BirdTileCompact', {
     'BirdTileCompact--found': found
   })
 
-  return <div className={cls}>
+  return <Link to={`/birds/${bird.id}`} className={cls}>
     <div className='BirdTileCompact-inner'>
       <header className='BirdTileCompact-header'>
-        <Link to='/'>
-          {title}
-        </Link>
+        {bird.name}
       </header>
       <div className='BirdTileCompact-image'>
-        <Link to='/'>
-          <img src='http://thunderfluff.com/fuglefinder/bird.jpg' />
-        </Link>
+        <img src={bird.picture.list} />
       </div>
       <div className='BirdTileCompact-rating'>
-        <Rating rating={4} />
+        <Rating rating={bird.rarity} />
       </div>
     </div>
-  </div>
+  </Link>
 }
 
 BirdTileCompact.propTypes = {
-  title: PropTypes.string,
+  bird: PropTypes.object.isRequired,
   found: PropTypes.bool
 }
