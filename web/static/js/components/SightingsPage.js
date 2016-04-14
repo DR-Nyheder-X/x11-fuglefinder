@@ -50,7 +50,7 @@ class SightingsPage extends Component {
       <Header title='Mine fund' />
       <Content>
         {birds.length === 0 && (
-          <FullPageNotice to='/' buttonText='Find din første fugl' text='Du har ikke spottet nogen fugle endnu. På med kikkerten.' />
+          <FullPageNotice to='/' buttonText='Find din første fugl' text='Du har ikke spottet nogen fugle endnu. Frem med kikkerten.' />
         )}
       </Content>
     </Navigation>

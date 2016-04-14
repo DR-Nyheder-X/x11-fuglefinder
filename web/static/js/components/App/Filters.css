@@ -60,7 +60,7 @@ $searchFieldHeight: 43px;
   > svg { position: relative; top:.025em; }
 }
 
-.Filters[data-search-is-focused="true"] {
+.Filters.Filters--focus {
   .Filters-search-submit {
     > svg > g { fill: $marine; }
   }
@@ -166,7 +166,7 @@ $searchFieldHeight: 43px;
   right: 30px;
 }
 
-.Filters[data-dropdown-is-open='true'] {
+.Filters.Filters--open {
   .Filters-size-toggle-open { transform: translateX(76px); }
   .Filters-size-toggle-clear { transform: translateX(0px); }
   .Filters-size-dropdown { display: flex; }

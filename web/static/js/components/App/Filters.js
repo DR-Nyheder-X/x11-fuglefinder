@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import classname from 'classname'
 import { register } from '../../store'
 import './Filters.css'
 
@@ -92,9 +93,13 @@ class Filters extends Component {
   }
 
   render () {
-    const { searchFocused, open, query } = this.props
+    const { searchFocused, open, query, size } = this.props
+    const cls = classname('Filters', {
+      'Filters--focus': searchFocused,
+      'Filters--open': open
+    })
 
-    return <div className='Filters' data-search-is-focused={searchFocused ? 'true' : 'false'} data-dropdown-is-open={open ? 'true' : 'false'}>
+    return <div className={cls}>
       <div className='Filters-toolbar'>
         <div className='Filters-search'>
           <button className='Filters-search-submit' type='submit'>
@@ -125,23 +130,23 @@ class Filters extends Component {
       </div>
 
       <div className='Filters-size'>
-        <form className='Filters-size-dropdown' onChange={::this.handleSizeChange}>
+        <div className='Filters-size-dropdown'>
           <div>
-            <input type='radio' name='size' value='S' id='small' />
+            <input type='radio' name='size' value='S' id='small' checked={size === 'S'} onChange={::this.handleSizeChange} />
             <label htmlFor='small'>Lille</label>
           </div>
           <div>
-            <input type='radio' name='size' value='M' id='medium' />
+            <input type='radio' name='size' value='M' id='medium' checked={size === 'M'} onChange={::this.handleSizeChange} />
             <label htmlFor='medium'>Mellem</label>
           </div>
           <div>
-            <input type='radio' name='size' value='L' id='large' />
+            <input type='radio' name='size' value='L' id='large' checked={size === 'L'} onChange={::this.handleSizeChange} />
             <label htmlFor='large'>Stor</label>
           </div>
           <svg width='17px' height='8px' viewBox='0 0 17 8' version='1.1'>
             <path d='M0.258116165,0.654611411 C-0.164583347,0.293079512 -0.0546119851,0 0.489192779,0 L16.0921048,0 C16.6424244,0 16.7544017,0.285791732 16.3231814,0.654611411 L9.05601396,6.87016828 C8.63331445,7.23170017 7.95650393,7.23898795 7.52528362,6.87016828 L0.258116165,0.654611411 Z' id='arrow' fill='#FF7D68' transform='translate(8.293446, 3.572028) scale(1, -1) translate(-8.293446, -3.572028)'></path>
           </svg>
-        </form>
+        </div>
       </div>
     </div>
   }
