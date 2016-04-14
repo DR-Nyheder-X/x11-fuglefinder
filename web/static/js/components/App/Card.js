@@ -4,7 +4,7 @@ import Rating from './Rating'
 import classname from 'classname'
 import './Card.css'
 
-export default function Card ({ bird, fitForModal, found, onFoundClick, onShareClick }) {
+export default function Card ({ bird, fitForModal, found, onFoundClick, shareUrl }) {
   const cls = classname('Card', {
     'Card--fitForModal': fitForModal,
     'Card--found': found
@@ -17,7 +17,7 @@ export default function Card ({ bird, fitForModal, found, onFoundClick, onShareC
       <Description bird={bird} />
       <Footer
         onFoundClick={onFoundClick}
-        onShareClick={onShareClick}
+        shareUrl={shareUrl}
         found={found}
       />
     </div>
@@ -29,7 +29,7 @@ Card.propTypes = {
   fitForModal: PropTypes.bool.isRequired,
   found: PropTypes.bool.isRequired,
   onFoundClick: PropTypes.func.isRequired,
-  onShareClick: PropTypes.func.isRequired
+  shareUrl: PropTypes.string.isRequired
 }
 
 export function Header ({ bird }) {
@@ -78,14 +78,14 @@ export function Description ({ bird }) {
   </div>
 }
 
-export function Footer ({ found, onFoundClick, onShareClick }) {
+export function Footer ({ found, onFoundClick, shareUrl }) {
   return <footer className='Card-footer'>
     <button className='Card-found' onClick={onFoundClick}>
       Den har jeg set!
     </button>
-    <button className='Card-share' onClick={onShareClick}>
+    <a className='Card-share' href={shareUrl} target='_blank'>
       Del dit fund
-    </button>
+    </a>
   </footer>
 }
 

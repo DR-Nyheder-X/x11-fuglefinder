@@ -1,20 +1,20 @@
 import React from 'react'
 import './ShareNotice.css'
 
-export default function ShareNotice ({ count, onShareClick, showClose }) {
+export default function ShareNotice ({ count, shareUrl, showClose }) {
   return <div className='ShareNotice'>
     <div className='ShareNotice-inner'>
       <div className='ShareNotice-content'>
         <h1>Ikke for at prale, men jeg har spottet {count} danske fugle! Hvor mange kan du finde?</h1>
         <div className='ShareNotice-callToAction'>
-          <button onClick={onShareClick}>
+          <a href={shareUrl} target='_blank'>
             Del på Facebook
             <svg width='17px' height='17px' viewBox='0 0 17 17' version='1.1'>
               <g id='founds-with-modal' transform='translate(-313.000000, -605.000000)' fill='#41799E'>
                 <path d='M324.365,622 L329.00004,622 C329.545291,622 330,621.552303 330,621.00004 L330,605.99996 C330,605.454709 329.552303,605 329.00004,605 L313.99996,605 C313.454709,605 313,605.447697 313,605.99996 L313,621.00004 C313,621.545291 313.447697,622 313.99996,622 L321.454,622 L321.454,616.034 L320,616.034 L320,613.609 L321.454,613.609 L321.454,612.154 C321.454,610.177 322.276,609 324.608,609 L326.55,609 L326.55,611.425 L325.337,611.425 C324.428,611.425 324.368,611.764 324.368,612.396 L324.365,613.609 L326.564,613.609 L326.306,616.034 L324.365,616.034 L324.365,622 Z'></path>
               </g>
             </svg>
-          </button>
+          </a>
         </div>
       </div>
       <div className='ShareNotice-image'>

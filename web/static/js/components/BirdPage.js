@@ -7,7 +7,7 @@ import { fetchBird } from './BirdsPage'
 import Card from './App/Card'
 import Navigation, { Header, Content } from './Navigation'
 import { createUserSighting, deleteUserSighting } from './SightingsPage'
-import openShareWindow from '../lib/openShareWindow'
+import fbShareUrl from '../lib/fbShareUrl'
 
 const stateToProps = (state, props) => {
   const id = parseInt(props.params.id, 10)
@@ -39,18 +39,15 @@ class BirdPage extends Component {
     dispatch(found ? deleteUserSighting(bird) : createUserSighting(bird))
   }
 
-  handleShareClick (event) {
-    const { bird } = this.props
-    const url = `https://fugle.drdinstem.me/og/birds/${bird.id}`
-    openShareWindow(url)
-  }
-
   render () {
     const { bird, found, dispatch } = this.props
 
     if (!bird) {
       return <div>...</div>
     }
+
+    const shareUrl =
+      `https://fugle.drdinstem.me/og/birds/${bird.id}`
 
     return <Navigation>
       <Header showBackButton dispatch={dispatch} />
@@ -59,7 +56,7 @@ class BirdPage extends Component {
           <Card
             bird={bird} found={found}
             onFoundClick={::this.handleFoundClick}
-            onShareClick={::this.handleShareClick}
+            shareUrl={fbShareUrl(shareUrl)}
           />
         </Swipeable>
       </Content>
