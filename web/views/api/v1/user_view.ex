@@ -9,6 +9,7 @@ defmodule Birdie.Api.V1.UserView do
   def render "user.json", %{user: user} do
     %{
       user: %{
+        id: user.id,
         token: user.token,
         birds: render_many(user.birds, BirdView, "bird.json")
       }

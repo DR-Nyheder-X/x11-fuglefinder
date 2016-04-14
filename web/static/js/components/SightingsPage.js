@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { unionBy, reject } from 'lodash'
 import { resolve } from 'redux-simple-promise'
+import openShareWindow from '../lib/openShareWindow'
 import FullPageNotice from './App/FullPageNotice'
 import Api from '../lib/Api'
 import { register } from '../store'
@@ -64,7 +65,8 @@ register({ sightings: reducer })
 /* COMPONENT */
 
 const stateToProps = (state) => ({
-  birds: state.sightings.sightings
+  birds: state.sightings.sightings,
+  currentUserId: state.app.currentUser.id
 })
 
 class SightingsPage extends Component {
@@ -74,9 +76,9 @@ class SightingsPage extends Component {
   }
 
   handleShareClick (event) {
-    // TODO:
-    const url = 'https://'
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`)
+    const { currentUserId } = this.props
+    const url = `https://fugle.drdinstem.me/og/users/${currentUserId}`
+    openShareWindow(url)
   }
 
   render () {
