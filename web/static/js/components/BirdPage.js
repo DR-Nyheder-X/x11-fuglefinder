@@ -7,6 +7,7 @@ import { fetchBird } from './BirdsPage'
 import Card from './App/Card'
 import Navigation, { Header, Content } from './Navigation'
 import { createUserSighting, deleteUserSighting } from './SightingsPage'
+import openShareWindow from '../lib/openShareWindow'
 
 const stateToProps = (state, props) => {
   const id = parseInt(props.params.id, 10)
@@ -39,10 +40,9 @@ class BirdPage extends Component {
   }
 
   handleShareClick (event) {
-    // TODO:
-    // const { bird } = this.props
-    const url = 'https://fugle.drdinstem.me'
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`)
+    const { bird } = this.props
+    const url = `https://fugle.drdinstem.me/og/birds/${bird.id}`
+    openShareWindow(url)
   }
 
   render () {
