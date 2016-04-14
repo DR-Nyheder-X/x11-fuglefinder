@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'mixins';
 @import 'fonts';
+@import 'utilities';
 
 * {
   -webkit-touch-callout: none;
