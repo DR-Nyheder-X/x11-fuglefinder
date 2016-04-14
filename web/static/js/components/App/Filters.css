@@ -58,14 +58,15 @@ $searchFieldHeight: 43px;
   transition: transform .15s ease;
   outline: 0;
   > svg { position: relative; top:.025em; }
+
+  &.Filters-search-clear--visible {
+    transform: translateX(0px);
+  }
 }
 
 .Filters.Filters--focus {
   .Filters-search-submit {
     > svg > g { fill: $marine; }
-  }
-  .Filters-search-clear {
-    transform: translateX(0px);
   }
 }
 

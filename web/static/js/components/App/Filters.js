@@ -79,7 +79,9 @@ class Filters extends Component {
   }
 
   handleSearchBlur (event) {
-    this.props.dispatch(setSearchFocus(false))
+    setTimeout(() => {
+      this.props.dispatch(setSearchFocus(false))
+    }, 100)
   }
 
   handleClearSearch (event) {
@@ -99,6 +101,10 @@ class Filters extends Component {
       'Filters--open': open
     })
 
+    const clearCls = classname('Filters-search-clear', {
+      'Filters-search-clear--visible': searchFocused
+    })
+
     return <div className={cls}>
       <div className='Filters-toolbar'>
         <div className='Filters-search'>
@@ -114,7 +120,7 @@ class Filters extends Component {
             rel='search'
             value={query}
           />
-          <button className='Filters-search-clear' onClick={::this.handleClearSearch}>
+          <button className={clearCls} onClick={::this.handleClearSearch}>
             <CrossIcon />
           </button>
         </div>
