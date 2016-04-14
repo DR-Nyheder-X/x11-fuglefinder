@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-import { fetchBird } from './BirdsPage'
+import Swipeable from 'react-swipeable'
+import { goBack } from 'react-router-redux'
 import { connect } from 'react-redux'
+import { find } from 'lodash'
+import { fetchBird } from './BirdsPage'
 import Card from './App/Card'
 import Navigation, { Header, Content } from './Navigation'
 import { createUserSighting, deleteUserSighting } from './SightingsPage'
-import { find } from 'lodash'
 
 const stateToProps = (state, props) => {
   const id = parseInt(props.params.id, 10)
@@ -53,11 +55,13 @@ class BirdPage extends Component {
     return <Navigation>
       <Header showBackButton dispatch={dispatch} />
       <Content>
-        <Card
-          bird={bird} found={found}
-          onFoundClick={::this.handleFoundClick}
-          onShareClick={::this.handleShareClick}
-        />
+        <Swipeable onSwipedRight={() => { dispatch(goBack()) }}>
+          <Card
+            bird={bird} found={found}
+            onFoundClick={::this.handleFoundClick}
+            onShareClick={::this.handleShareClick}
+          />
+        </Swipeable>
       </Content>
     </Navigation>
   }
