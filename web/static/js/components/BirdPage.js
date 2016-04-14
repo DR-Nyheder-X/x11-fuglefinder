@@ -1,19 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import { fetchBird } from './BirdsPage'
 import { connect } from 'react-redux'
-import {
-  Header as CardHeader,
-  Image,
-  Description,
-  Footer
-} from './App/Card'
+import Card from './App/Card'
 import Navigation, { Header, Content } from './Navigation'
+import { createUserSighting, deleteUserSighting } from './SightingsPage'
+import { find } from 'lodash'
 
 const stateToProps = (state, props) => {
   const id = parseInt(props.params.id, 10)
   return {
     id,
-    bird: state.birds.birds.find((bird) => bird.id === id)
+    bird: find(state.birds.birds, {id}),
+    found: !!find(state.sightings.sightings, {id})
   }
 }
 
@@ -21,7 +19,8 @@ class BirdPage extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     id: PropTypes.number.isRequired,
-    bird: PropTypes.object
+    bird: PropTypes.object,
+    found: PropTypes.bool.isRequired
   }
 
   componentDidMount () {
@@ -32,8 +31,19 @@ class BirdPage extends Component {
     }
   }
 
+  handleFoundClick (event) {
+    const { dispatch, found, bird } = this.props
+    dispatch(found ? deleteUserSighting(bird) : createUserSighting(bird))
+  }
+
+  handleShareClick (event) {
+    // const { bird } = this.props
+    const url = 'https://fugle.drdinstem.me'
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`)
+  }
+
   render () {
-    const { bird, dispatch } = this.props
+    const { bird, found, dispatch } = this.props
 
     if (!bird) {
       return <div>...</div>
@@ -42,10 +52,11 @@ class BirdPage extends Component {
     return <Navigation>
       <Header showBackButton dispatch={dispatch} />
       <Content>
-        <CardHeader bird={bird} />
-        <Image bird={bird} />
-        <Description bird={bird} />
-        <Footer bird={bird} found={false} />
+        <Card
+          bird={bird} found={found}
+          onFoundClick={::this.handleFoundClick}
+          onShareClick={::this.handleShareClick}
+        />
       </Content>
     </Navigation>
   }

@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { resolve } from 'redux-simple-promise'
-// import { without } from 'lodash'
 import { register } from '../../store'
 import Api from '../../lib/Api'
 import TabBar, {
@@ -10,7 +9,6 @@ import TabBar, {
   TabBarNavigation
 } from './TabBar'
 import './App.css'
-import { CREATE_USER_SIGHTING, DELETE_USER_SIGHTING } from '../SightingsPage'
 
 export const FETCH_CURRENT_USER = 'app/FETCH_CURRENT_USER'
 export function fetchCurrentUser () {
@@ -28,26 +26,6 @@ export function reducer (state = initialState, action) {
   switch (action.type) {
     case resolve(FETCH_CURRENT_USER):
       return { ...state, currentUser: action.payload.user }
-
-    case CREATE_USER_SIGHTING:
-      return { ...state }
-      // return {
-      //   ...state,
-      //   currentUser: {
-      //     ...state.currentUser,
-      //     birds: state.currentUser.birds.concat([action.payload])
-      //   }
-      // }
-
-    case DELETE_USER_SIGHTING:
-      return { ...state }
-      // return {
-      //   ...state,
-      //   currentUser: {
-      //     ...state.currentUser,
-      //     birds: without(state.currentUser.birds, action.payload)
-      //   }
-      // }
 
     default:
       return state
@@ -82,7 +60,7 @@ class App extends Component {
     return <TabBar className='App'>
       <TabBarContent children={children} />
       <TabBarNavigation>
-        <TabBarButton to='/' active={pathname === '/' || !!pathname.match(/^\/habitats/)}>
+        <TabBarButton to='/' active={pathname === '/' || !!pathname.match(/^\/(habitats|birds)/)}>
           <BirdIcon />
           <span>Alle fugle</span>
         </TabBarButton>
