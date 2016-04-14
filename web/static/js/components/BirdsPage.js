@@ -9,6 +9,8 @@ import BirdTile from './BirdTile'
 import Filters from './App/Filters'
 import { unionBy, find } from 'lodash'
 import { createUserSighting, deleteUserSighting } from './SightingsPage'
+import { push } from 'react-router-redux'
+import Swipeable from 'react-swipeable'
 
 /* ACTIONS */
 
@@ -116,19 +118,21 @@ class BirdsPage extends Component {
     return <Navigation className='BirdsPage'>
       <Header title={habitats[slug]} showBackButton to='/' dispatch={dispatch} />
       <Content>
-        <Filters searchIsFocused={false} />
-        <div className='BirdTiles'>
-          {birds.map((bird) => {
-            const found = !!find(sightings, { id: bird.id })
-            return <BirdTile
-              key={bird.id}
-              to={`/birds/${bird.id}`}
-              bird={bird}
-              onFoundClick={::this.handleFoundClick(bird, found)}
-              found={found}
-            />
-          })}
-        </div>
+        <Swipeable onSwipedRight={() => { dispatch(push('/')) }}>
+          <Filters searchIsFocused={false} />
+          <div className='BirdTiles'>
+            {birds.map((bird) => {
+              const found = !!find(sightings, { id: bird.id })
+              return <BirdTile
+                key={bird.id}
+                to={`/birds/${bird.id}`}
+                bird={bird}
+                onFoundClick={::this.handleFoundClick(bird, found)}
+                found={found}
+              />
+            })}
+          </div>
+        </Swipeable>
       </Content>
     </Navigation>
   }
