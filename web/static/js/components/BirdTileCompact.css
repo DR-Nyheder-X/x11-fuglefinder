@@ -4,8 +4,11 @@
 $birdTileCompactHeight: 71px;
 
 .BirdTileCompact {
+  display: block;
   overflow: hidden;
   padding: 0 $spaceXs $spaceXs;
+
+  img { min-height: 40px; }
 }
 
 .BirdTileCompact-inner {

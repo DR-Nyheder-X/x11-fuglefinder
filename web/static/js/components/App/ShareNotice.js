@@ -1,13 +1,13 @@
 import React from 'react'
 import './ShareNotice.css'
 
-export default function ShareNotice () {
+export default function ShareNotice ({ count, onShareClick, showClose }) {
   return <div className='ShareNotice'>
     <div className='ShareNotice-inner'>
       <div className='ShareNotice-content'>
-        <h1>Ikke for at prale, men jeg har spottet mere end 10 danske fugle! Hvor mange kan du finde?</h1>
+        <h1>Ikke for at prale, men jeg har spottet {count} danske fugle! Hvor mange kan du finde?</h1>
         <div className='ShareNotice-callToAction'>
-          <button>
+          <button onClick={onShareClick}>
             Del på Facebook
             <svg width='17px' height='17px' viewBox='0 0 17 17' version='1.1'>
               <g id='founds-with-modal' transform='translate(-313.000000, -605.000000)' fill='#41799E'>
@@ -18,13 +18,13 @@ export default function ShareNotice () {
         </div>
       </div>
       <div className='ShareNotice-image'>
-        <img src='http://thunderfluff.com/fuglefinder/bird-giving-no-fucks.jpg' />
+        <img src='https://s3.brnbw.com/deal-with-it-bird.jpg' />
       </div>
-      <button className='ShareNotice-close'>
+      {showClose && <button className='ShareNotice-close'>
         <svg width='12px' height='12px' viewBox='0 0 12 12'>
           <path d='M4.12132034,6.24264069 L0.939339828,3.06066017 C0.353553391,2.47487373 0.353553391,1.52512627 0.939339828,0.939339828 C1.52512627,0.353553391 2.47487373,0.353553391 3.06066017,0.939339828 L6.24264069,4.12132034 L9.4246212,0.939339828 C10.0104076,0.353553391 10.9601551,0.353553391 11.5459415,0.939339828 C12.131728,1.52512627 12.131728,2.47487373 11.5459415,3.06066017 L8.36396103,6.24264069 L11.5459415,9.4246212 C12.131728,10.0104076 12.131728,10.9601551 11.5459415,11.5459415 C10.9601551,12.131728 10.0104076,12.131728 9.4246212,11.5459415 L6.24264069,8.36396103 L3.06066017,11.5459415 C2.47487373,12.131728 1.52512627,12.131728 0.939339828,11.5459415 C0.353553391,10.9601551 0.353553391,10.0104076 0.939339828,9.4246212 L4.12132034,6.24264069 Z'></path>
         </svg>
-      </button>
+      </button>}
     </div>
   </div>
 }

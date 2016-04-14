@@ -2,7 +2,7 @@
 @import '../../lib/mixins';
 
 .ShareNotice {
-  padding: 0 $spaceXs $spaceXs;
+  padding: $spaceXs;
 }
 
 .ShareNotice-inner {

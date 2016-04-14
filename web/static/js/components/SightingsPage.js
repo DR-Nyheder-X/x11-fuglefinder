@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { unionBy, reject } from 'lodash'
 import { resolve } from 'redux-simple-promise'
@@ -7,6 +7,8 @@ import Api from '../lib/Api'
 import { register } from '../store'
 import Navigation, { Header, Content } from './Navigation'
 import { FETCH_CURRENT_USER } from './App'
+import ShareNotice from './App/ShareNotice'
+import BirdTileCompact from './BirdTileCompact'
 
 /* ACTIONS */
 
@@ -66,6 +68,17 @@ const stateToProps = (state) => ({
 })
 
 class SightingsPage extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    birds: PropTypes.arrayOf(PropTypes.object.isRequired)
+  }
+
+  handleShareClick (event) {
+    // TODO:
+    const url = 'https://'
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`)
+  }
+
   render () {
     const { birds } = this.props
 
@@ -75,6 +88,10 @@ class SightingsPage extends Component {
         {birds.length === 0 && (
           <FullPageNotice to='/' buttonText='Find din første fugl' text='Du har ikke spottet nogen fugle endnu. Frem med kikkerten.' />
         )}
+        {birds.length > 0 && <ShareNotice count={birds.length} onShareClick={::this.handleShareClick} />}
+        {birds.map((bird) => (
+          <BirdTileCompact key={bird.id} bird={bird} found />
+        ))}
       </Content>
     </Navigation>
   }

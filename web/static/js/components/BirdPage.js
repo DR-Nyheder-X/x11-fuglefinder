@@ -37,6 +37,7 @@ class BirdPage extends Component {
   }
 
   handleShareClick (event) {
+    // TODO:
     // const { bird } = this.props
     const url = 'https://fugle.drdinstem.me'
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`)
