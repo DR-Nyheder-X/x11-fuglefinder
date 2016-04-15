@@ -11,7 +11,9 @@ defmodule Birdie.Api.V1.BirdController do
   end
 
   def index conn, _ do
-    query = from b in Bird, preload: [:habitats]
+    query = from b in Bird,
+      preload: [:habitats],
+      order_by: [b.rarity, b.name]
     render conn, "index.json", birds: Repo.all(query), habitat: nil
   end
 
