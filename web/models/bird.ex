@@ -12,6 +12,7 @@ defmodule Birdie.Bird do
     field :size, :string
     field :picture, Birdie.Picture.Type
     field :habitat_ids, {:array, :integer}, virtual: true
+    field :english_name, :string
 
     many_to_many :habitats, Birdie.Habitat,
       join_through: "birds_habitats",
@@ -25,7 +26,7 @@ defmodule Birdie.Bird do
   end
 
   @required_fields ~w(name latin_name wikipedia_url rarity size fact)a
-  @optional_fields ~w(habitat_ids)a
+  @optional_fields ~w(habitat_ids english_name)a
   @allowed_upload_fields ~w(picture)a
 
   @doc """
