@@ -1,6 +1,6 @@
 <h2>Listing birds</h2>
 
-<table class="table">
+<table class="table" style="width: 100%;">
   <thead>
     <tr>
       <th></th>
@@ -15,8 +15,12 @@
 <%= for bird <- @birds do %>
     <tr>
       <td><img src='<%= bird_image_url bird, :list %>' width=50></td>
-      <td><%= bird.name %></td>
-      <td><%= Enum.map(bird.habitats, &(&1.name)) |> Enum.join(", ") %></td>
+      <td>
+        <strong><%= bird.name %></strong><br>
+        <%= bird.latin_name %><br>
+        <%= bird.english_name %>
+      </td>
+      <td><%= {:safe, Enum.map(bird.habitats, &(&1.name)) |> Enum.join("<br>")} %></td>
       <td><%= bird.size %></td>
       <td><%= Enum.map(1..bird.rarity, fn _ -> "★" end) %></td>
 
