@@ -18,6 +18,7 @@ defmodule Birdie.Api.V1.BirdView do
       id: bird.id,
       name: bird.name,
       latin_name: bird.latin_name,
+      english_name: bird.english_name,
       fact: bird.fact,
       wikipedia_url: bird.wikipedia_url,
       rarity: bird.rarity,
