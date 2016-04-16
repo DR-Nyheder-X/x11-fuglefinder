@@ -11,10 +11,10 @@
     <meta property="fb:app_id" content="469433496581008">
     <meta property="og:description" content="<%= @text %>">
     <%= if Mix.env == :prod do %>
-      <meta http-equiv="refresh" content="1;url=https://fugle.drdinstem.me">
+      <meta http-equiv="refresh" content="1;url=http://www.dr.dk/nyheder/viden/fugle">
     <% end %>
   </head>
   <body>
-    Redirecting ...
+    Redirecting &hellip;
   </body>
 </html>

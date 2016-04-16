@@ -4,6 +4,7 @@ defmodule Birdie.OpenGraphController do
   import Birdie.BirdView, only: [bird_image_url: 2]
 
   @title "DR: Det Store Fugletræk"
+  @icon "https://fugle.drdinstem.me/apple-touch-icon.png"
 
   plug :put_layout, false
 
@@ -13,7 +14,7 @@ defmodule Birdie.OpenGraphController do
     render conn, "redirect.html", [
       title: @title,
       url: current_url(conn),
-      image: "https://s3.brnbw.com/deal-with-it-bird.jpg",
+      image: @icon,
       text: "Ikke for at prale, men jeg har allerede spottet #{length(user.birds)} danske fugle! Hvor mange kan du finde?"
     ]
   end
