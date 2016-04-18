@@ -107,6 +107,12 @@ class BirdsPage extends Component {
     }
   }
 
+  handleSwipeRight (event, delta) {
+    if (delta < -200) {
+      this.props.dispatch(push('/'))
+    }
+  }
+
   render () {
     const { slug, isFetching, dispatch, sightings } = this.props
     const birds = this.props.birds
@@ -118,7 +124,7 @@ class BirdsPage extends Component {
     return <Navigation className='BirdsPage'>
       <Header title={habitats[slug]} showBackButton to='/' dispatch={dispatch} />
       <Content>
-        <Swipeable onSwipedRight={() => { dispatch(push('/')) }}>
+        <Swipeable onSwipedRight={::this.handleSwipeRight}>
           <Filters searchIsFocused={false} />
           <div className='BirdTiles'>
             {birds.map((bird) => {
