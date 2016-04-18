@@ -22,6 +22,7 @@ export default function HabitatList () {
           children={habitats[key]}
         />
       ))}
+      <SectionLink to={'/birds'} className='SectionLink--all-birds'>Alle fugle</SectionLink>
     </div>
   </div>
 }

@@ -7,7 +7,7 @@ import Api from '../lib/Api'
 import { register } from '../store'
 import BirdTile from './BirdTile'
 import Filters from './App/Filters'
-import { unionBy, find } from 'lodash'
+import { find, sortBy, unionBy } from 'lodash'
 import { createUserSighting, deleteUserSighting } from './SightingsPage'
 import { push } from 'react-router-redux'
 import Swipeable from 'react-swipeable'
@@ -15,10 +15,14 @@ import Swipeable from 'react-swipeable'
 /* ACTIONS */
 
 export const FETCH_BIRDS_BY_HABITAT = 'birds/FETCH_BIRDS_BY_HABITAT'
-export function fetchBirdsByHabitat (habitat) {
+export function fetchBirdsByHabitat (habitat = null) {
+  let url = '/birds'
+
+  if (habitat) { url += `?habitat=${habitat}` }
+
   return {
     type: FETCH_BIRDS_BY_HABITAT,
-    payload: { promise: Api.get(`/birds?habitat=${habitat}`) }
+    payload: { promise: Api.get(url) }
   }
 }
 
@@ -66,17 +70,18 @@ register({ birds: reducer })
 const stateToProps = (state, props) => {
   const slug = props.params.slug
   const filters = state.filters
+  const filteredBirds = filterBirds(state.birds.birds, { slug, filters })
 
   return {
     slug,
     sightings: state.sightings.sightings,
-    birds: filterBirds(state.birds.birds, { slug, filters })
+    birds: sortBy(filteredBirds, ['rating', 'name'])
   }
 }
 
 const filterBirds = (birds, { slug, filters }) => {
   return birds.filter((bird) => {
-    if (!bird.habitats.includes(slug)) { return false }
+    if (slug && !bird.habitats.includes(slug)) { return false }
     if (filters.size && bird.size !== filters.size) { return false }
     if (filters.query !== '' &&
         !bird.name.toLowerCase().includes(filters.query)) { return false }
