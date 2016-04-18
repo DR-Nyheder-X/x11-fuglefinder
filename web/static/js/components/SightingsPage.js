@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { unionBy, reject } from 'lodash'
+import { unionBy, reject, sortBy } from 'lodash'
 import { resolve } from 'redux-simple-promise'
 import fbShareUrl from '../lib/fbShareUrl'
 import FullPageNotice from './App/FullPageNotice'
@@ -65,7 +65,7 @@ register({ sightings: reducer })
 /* COMPONENT */
 
 const stateToProps = (state) => ({
-  birds: state.sightings.sightings,
+  birds: sortBy(state.sightings.sightings, (b) => 0 - b.rarity, 'name'),
   currentUserId: state.app.currentUser.id
 })
 

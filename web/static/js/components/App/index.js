@@ -62,7 +62,7 @@ class App extends Component {
       <TabBarNavigation>
         <TabBarButton to='/' active={pathname === '/' || !!pathname.match(/^\/(habitats|birds)/)}>
           <BirdIcon />
-          <span>Alle fugle</span>
+          <span>Fugle</span>
         </TabBarButton>
         <TabBarButton to='/sightings' active={!!pathname.match(/^\/sightings/)}>
           <EyeIcon />

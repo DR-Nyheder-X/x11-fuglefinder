@@ -29,7 +29,7 @@
 .TabBarButton {
   @include blockyText;
 
-  flex: 1 1 auto;
+  flex: 1 1 50%;
 
   display: flex;
   flex-flow: column nowrap;

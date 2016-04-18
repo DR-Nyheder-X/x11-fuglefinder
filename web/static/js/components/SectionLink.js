@@ -1,9 +1,12 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 import './SectionLink.css'
+import classname from 'classname'
 
-export default function SectionLink ({ to, children }) {
-  return <Link to={to} className='SectionLink'>
+export default function SectionLink ({ to, children, className }) {
+  const cls = classname('SectionLink', className)
+
+  return <Link to={to} className={cls}>
     <span>{children}</span>
     <span className='SectionLink-arrow'>
       <svg width='20px' height='16px' viewBox='0 0 20 16'>
@@ -15,5 +18,6 @@ export default function SectionLink ({ to, children }) {
 
 SectionLink.propTypes = {
   children: PropTypes.node,
-  to: PropTypes.string
+  to: PropTypes.string,
+  className: PropTypes.string
 }

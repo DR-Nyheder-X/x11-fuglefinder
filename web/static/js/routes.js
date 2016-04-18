@@ -14,6 +14,7 @@ export default (<Route>
     <Route path='habitats/:slug' component={BirdsPage} />
     <Route path='habitats' component={HabitatsPage} />
     <Route path='birds/:id' component={BirdPage} />
+    <Route path='birds' component={BirdsPage} />
     <Route path='sightings' component={SightingsPage} />
     <IndexRoute component={HabitatsPage} />
     {__DEV &&

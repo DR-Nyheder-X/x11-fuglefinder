@@ -91,4 +91,11 @@ span.SectionLink-arrow {
     span.SectionLink-arrow { background-color: $aquaDark; }
     svg path { fill: $aquaLight; }
   }
+
+  .SectionLink.SectionLink--all-birds {
+    background-color: $creamDark;
+    color: $creamDarkest;
+    span.SectionLink-arrow { background-color: $creamDarker; }
+    svg path { fill: $creamDarkest; }
+  }
 }
