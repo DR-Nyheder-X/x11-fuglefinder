@@ -18,7 +18,7 @@ import NotNative from './components/NotNative'
 
 const mount = document.getElementById('root')
 
-if (navigator.standalone || window.localStorage.getItem('_native') === "1") {
+if (navigator.standalone || window.localStorage.getItem('_native') === '1') {
   render(
     <Provider store={store}>
       <Router history={history} routes={routes} />
