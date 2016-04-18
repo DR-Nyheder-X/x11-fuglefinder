@@ -9,8 +9,9 @@ defmodule Birdie.ErrorHelpers do
   Generates tag for inlined form input errors.
   """
   def error_tag(form, field) do
-    if error = form.errors[field] do
-      content_tag :span, translate_error(error), class: "help-block"
+    case form.errors[field] do
+      {error, _opts} -> content_tag :span, error, class: "help-block"
+      nil -> nil
     end
   end
 
