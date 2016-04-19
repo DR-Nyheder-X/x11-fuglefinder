@@ -23,7 +23,7 @@ export function createUserSighting (bird) {
         const { latitude, longitude } = pos.coords
         Api.post('/sightings', { bird_id: bird.id, lat: latitude, lng: longitude })
       }, (err) => {
-        console.log(err)
+        console.error(err)
         Api.post('/sightings', { bird_id: bird.id })
       })
     }
