@@ -113,7 +113,6 @@ class Filters extends Component {
             onFocus={::this.handleSearchFocus}
             onBlur={::this.handleSearchBlur}
             onChange={::this.handleQueryChange}
-            rel='search'
             value={query}
           />
           <button className={clearCls} onClick={::this.handleClearSearch}>
