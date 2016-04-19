@@ -108,6 +108,8 @@ class Filters extends Component {
             <MagnifyingGlassIcon />
           </button>
           <input type='search'
+            autoCapitalize='off'
+            autoComplete='off'
             className='Filters-search-field'
             placeholder='Søg...'
             onFocus={::this.handleSearchFocus}
