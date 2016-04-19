@@ -8,6 +8,10 @@
   -webkit-user-select: none;
 }
 
+input {
+  -webkit-user-select: auto;
+}
+
 *,
 *:before,
 *:after {
