@@ -18,7 +18,7 @@ config :birdie, Birdie.Endpoint,
 
 config :birdie,
   volume_path: "/app/uploads",
-  host: System.get_env("HOSTNAME")
+  host: "https://#{System.get_env("HOSTNAME")}"
 
 # Do not print debug messages in production
 config :logger, level: :info
