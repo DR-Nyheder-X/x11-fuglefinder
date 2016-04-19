@@ -4,6 +4,20 @@ defmodule Birdie.Api.V1.SightingController do
 
   plug Birdie.Plugs.Authenticate when action in [:create, :delete]
 
+  def index conn, %{"lat" => lat, "lng" => lng} do
+    {lat, _} = Float.parse(lat)
+    {lng, _} = Float.parse(lng)
+
+    query = from s in Sighting,
+      select: s,
+      limit: 1000,
+      where: not is_nil(s.lat) and not is_nil(s.lng),
+      order_by: fragment("earth_distance(ll_to_earth(?, ?), ll_to_earth(?, ?))",
+                         ^lat, ^lng, s.lat, s.lng)
+
+    render(conn, "index.json", sightings: Repo.all(query))
+  end
+
   def create conn, bird_params do
     changeset = Sighting.changeset(%Sighting{}, Map.merge(bird_params, %{
       "user_id" => conn.assigns.current_user.id

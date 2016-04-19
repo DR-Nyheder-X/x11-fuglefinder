@@ -3,6 +3,12 @@ defmodule Controllers.Api.V1.SightingControllerTest do
   alias Birdie.Sighting
   import Birdie.Factory
 
+  test "GET index with lat lng" do
+    conn = get conn, api_v1_sighting_path(conn, :index, lat: "1.0", lng: "1.0")
+    assert %{"data" => data} = json_response(conn, 200)
+    assert length(data) == 0
+  end
+
   test "POST create as anon" do
     conn = post conn, api_v1_sighting_path(conn, :create, bird_id: 1)
     assert response(conn, 401) == "unauthorized"
