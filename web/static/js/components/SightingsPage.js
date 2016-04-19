@@ -10,6 +10,7 @@ import Navigation, { Header, Content } from './Navigation'
 import { FETCH_CURRENT_USER } from './App'
 import ShareNotice from './App/ShareNotice'
 import BirdTileCompact from './BirdTileCompact'
+import requestPosition from '../lib/requestPosition'
 
 /* ACTIONS */
 
@@ -18,7 +19,13 @@ export function createUserSighting (bird) {
   return {
     type: CREATE_USER_SIGHTING,
     payload: {
-      bird, promise: Api.post('/sightings', { bird_id: bird.id })
+      bird, promise: requestPosition().then((pos) => {
+        const { latitude, longitude } = pos.coords
+        Api.post('/sightings', { bird_id: bird.id, lat: latitude, lng: longitude })
+      }, (err) => {
+        console.log(err)
+        Api.post('/sightings', { bird_id: bird.id })
+      })
     }
   }
 }

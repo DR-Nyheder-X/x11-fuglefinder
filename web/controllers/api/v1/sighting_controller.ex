@@ -1,16 +1,13 @@
 defmodule Birdie.Api.V1.SightingController do
   use Birdie.Web, :controller
-  alias Birdie.{Bird, Sighting}
+  alias Birdie.Sighting
 
   plug Birdie.Plugs.Authenticate when action in [:create, :delete]
 
-  def create conn, %{"bird_id" => bird_id} do
-    bird = Repo.get! Bird, bird_id
-
-    changeset = Sighting.changeset(%Sighting{}, %{
-      user_id: conn.assigns.current_user.id,
-      bird_id: bird.id
-    })
+  def create conn, bird_params do
+    changeset = Sighting.changeset(%Sighting{}, Map.merge(bird_params, %{
+      "user_id" => conn.assigns.current_user.id
+    }))
 
     case Repo.insert(changeset) do
       {:ok, _sighting} ->
