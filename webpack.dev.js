@@ -11,6 +11,7 @@ app.use(require('cors')())
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
+  contentBase: 'web/static/assets',
   publicPath: config.output.publicPath
 }))
 

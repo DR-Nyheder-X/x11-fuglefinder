@@ -14,7 +14,8 @@ config :birdie, Birdie.Endpoint,
   watchers: [node: ["./webpack.dev.js"]]
 
 config :birdie,
-  volume_path: "uploads"
+  volume_path: "uploads",
+  host: "http://localhost:4000"
 
 # Watch static and templates for browser reloading.
 config :birdie, Birdie.Endpoint,

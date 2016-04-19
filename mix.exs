@@ -47,7 +47,8 @@ defmodule Birdie.Mixfile do
       {:arc, "~> 0.5.1"},
       {:arc_ecto, github: "mikker/arc_ecto"},
       {:ex_aws, "~> 0.4.10"},
-      {:ex_machina, "~> 0.6.1", only: [:test]}
+      {:ex_machina, "~> 0.6.1", only: [:test]},
+      {:corsica, "~> 0.4"}
     ]
   end
 
