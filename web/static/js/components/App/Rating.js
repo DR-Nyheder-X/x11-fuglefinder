@@ -1,11 +1,21 @@
 import React, { Component, PropTypes } from 'react'
 import './Rating.css'
 
+const titles = {
+  1: 'Ikke sjælden',
+  2: 'Lidt sjælden',
+  3: 'Sjælden',
+  4: 'Meget sjælden',
+  5: 'Vildt sjælden'
+}
+
 export default class Rating extends Component {
   render () {
-    return <div className={`Rating Rating--${this.props.rating}`} data-has-title={this.props.title ? 'true' : 'false'}>
-      {this.props.title &&
-        <div className='Rating-title'>{this.props.title}</div>
+    const { showTitle, rating } = this.props
+
+    return <div className={`Rating Rating--${rating}`} data-has-title={showTitle ? 'true' : 'false'}>
+      {showTitle &&
+        <div className='Rating-title'>{titles[rating]}</div>
       }
       <div className='Rating-stars'>
         <svg width='13px' height='12px' viewBox='0 0 13 12'>
@@ -29,6 +39,10 @@ export default class Rating extends Component {
 }
 
 Rating.propTypes = {
-  title: PropTypes.string,
+  showTitle: PropTypes.bool.isRequired,
   rating: PropTypes.number // 1..5
+}
+
+Rating.defaultProps = {
+  showTitle: false
 }
