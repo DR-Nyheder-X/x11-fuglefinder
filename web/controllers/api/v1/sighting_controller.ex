@@ -3,6 +3,7 @@ defmodule Birdie.Api.V1.SightingController do
   alias Birdie.Sighting
 
   plug Birdie.Plugs.Authenticate when action in [:create, :delete]
+  plug Corsica, [origin: "*"] when action in [:index]
 
   def index conn, %{"lat" => lat, "lng" => lng} do
     {lat, _} = Float.parse(lat)
@@ -12,6 +13,7 @@ defmodule Birdie.Api.V1.SightingController do
       select: s,
       limit: 1000,
       where: not is_nil(s.lat) and not is_nil(s.lng),
+      preload: [:bird],
       order_by: fragment("earth_distance(ll_to_earth(?, ?), ll_to_earth(?, ?))",
                          ^lat, ^lng, s.lat, s.lng)
 

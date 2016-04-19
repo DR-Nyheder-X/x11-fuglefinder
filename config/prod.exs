@@ -17,7 +17,8 @@ config :birdie, Birdie.Endpoint,
   cache_static_manifest: "priv/static/manifest.json"
 
 config :birdie,
-  volume_path: "/app/uploads"
+  volume_path: "/app/uploads",
+  host: System.get_env("HOSTNAME")
 
 # Do not print debug messages in production
 config :logger, level: :info
