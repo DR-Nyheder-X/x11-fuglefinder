@@ -75,7 +75,7 @@ const stateToProps = (state, props) => {
   return {
     slug,
     sightings: state.sightings.sightings,
-    birds: sortBy(filteredBirds, ['rating', 'name'])
+    birds: sortBy(filteredBirds, ['rarity', 'name'])
   }
 }
 
