@@ -34,7 +34,7 @@
 
         info = new google.maps.InfoWindow()
 
-        $.get('http://localhost:4000/api/v1/sightings', { lat: lat, lng: lng }).then(drawMarkers)
+        $.get('https://fugle.drdinstem.me/api/v1/sightings', { lat: lat, lng: lng }).then(drawMarkers)
       }
 
       function drawMarkers (json) {
