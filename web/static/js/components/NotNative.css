@@ -1,0 +1,76 @@
+@import '../lib/variables';
+@import '../lib/mixins';
+
+.NotNative {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.NotNative-noThanks {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  color: $creamDarkest;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 58px;
+  right: 12px;
+  svg { margin-left: .5em; }
+}
+
+.NotNative-addToHomescreen {
+  position: relative;
+  padding-bottom: 12px;
+  width: 204px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -102px;
+
+  p {
+    padding: 20px 20px 22px;
+    background-color: #fff;
+    border: 3px solid $marine;
+    border-radius: 2px;
+    line-height: 1.3;
+    text-align: center;
+    overflow: visible;
+    margin: 0;
+    font-size: 18px;
+
+    em {
+      display: inline-block;
+      width: 17px;
+      height: 24px;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAwCAMAAABDh1hgAAAAWlBMVEUAAAAAgP8AgP8Ad/8AeP8AgP8Aev8Adv8Ad/8AdP8Adf8Adv8Ac/8Adf8Adv8Ac/8AdP8AdP8AdP8AdP8AdP8AdP8Ac/8AdP8Ac/8AdP8Ac/8Ac/8Ac/////8QB8AiAAAAHHRSTlMACgwPERQXGh4hJSk1TFC8wcbLz9jc3+Pm6fz9n0Y+AQAAAIdJREFUeNrtzUkKwzAQRNHyPMrxPFbuf83IBKMQpMbLBPQpevWg8ZU6DgWxaiO3ShLlSt1aukWx8EG9pXCJfGYbkEHLObeLbGIXgkTYccpsIh3ZRzgJop5jaiHNPsR4E8TD3sCSSnARJAr2DAF+lPCjp+66pntEfuSJJxKpaycxefKXRO4WeQHvfSaPWk14BwAAAABJRU5ErkJggg==);
+      background-size: 17px;
+      margin: 0 .15em;
+      position: relative;
+      bottom: -.05em;
+    }
+  }
+
+  svg {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -14.5px;
+  }
+}
+
+.NotNative--bottom {
+
+}
+
+.NotNative--topRight {
+
+}
