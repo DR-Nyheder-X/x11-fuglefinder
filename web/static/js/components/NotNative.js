@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import classname from 'classname'
 import Navigation, { Header } from './Navigation'
 import './NotNative.css'
 
@@ -27,12 +28,16 @@ const forceNative = (event) => {
 }
 
 export default class NotNative extends Component {
-
   render () {
-    return <div className='NotNative'>
+    const isAndroid = isMobile.Android()
+
+    const cls = classname('NotNative', {
+      'NotNative--topRight': isAndroid
+    })
+    return <div className={cls}>
       <Header />
       <button className='NotNative-noThanks' onClick={forceNative}>
-        Bare giv mig app'en
+        {isAndroid && 'Jeg har allerede gjort dette' || 'Bare giv mig app\'en'}
         <svg width="30px" height="29px" viewBox="0 0 30 29">
           <g transform="translate(-325.000000, -74.000000)">
             <g transform="translate(325.000000, 74.000000)">
