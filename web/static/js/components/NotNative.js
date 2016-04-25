@@ -29,7 +29,7 @@ const forceNative = (event) => {
 export default class NotNative extends Component {
 
   render () {
-    return <div className='NotNative'>
+    return <div className='NotNative NotNative--topRight'>
       <Header />
       <button className='NotNative-noThanks' onClick={forceNative}>
         Bare giv mig app'en
