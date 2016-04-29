@@ -32,7 +32,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: $cream;
+  background-color: #fff;
   color: $fontColor;
   font-size: $fontSize;
 }
