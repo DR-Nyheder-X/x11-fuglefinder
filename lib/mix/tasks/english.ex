@@ -1,6 +1,6 @@
 defmodule Mix.Tasks.Birdie.English do
   use Mix.Task
-  alias Birdie.{Repo, Bird, Habitat}
+  alias Birdie.{Repo, Bird}
   import Ecto.Query, only: [from: 2]
 
   @repo "https://docs.google.com/spreadsheets/d/1O5ip1kUvPuGNwfe422DuuAGC-75AEuiLkqSHM_pk8E0/pub?output=csv"
