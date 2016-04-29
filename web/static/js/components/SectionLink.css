@@ -37,7 +37,7 @@ span.SectionLink-arrow {
   display: flex;
   justify-content: center;
   align-items: center;
-  > svg path { fill: $marineLight; }
+  > svg path { fill: $drBlue; }
 
   @media ( min-device-width: 375px ) { width: 46px; }
   @media ( min-device-width: 414px ) { width: $headerHeight; }

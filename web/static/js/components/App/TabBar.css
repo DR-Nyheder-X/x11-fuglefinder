@@ -34,7 +34,7 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  color: $drBlue;
+  color: $drMuddyDarkest;
 }
 
 
@@ -45,7 +45,7 @@
 .TabBarButton:first-child  { box-shadow: inset -1px 0 0 $drMuddyDarker; }
 .TabBarButton:last-child { box-shadow: inset 1px 0 0 $drMuddyDarker; }
 
-.TabBarButton svg path { fill: $drBlue; }
+.TabBarButton svg path { fill: $drMuddyDarkest; }
 
 /* Active states */
 .TabBarButton.active { color: #fff; }
