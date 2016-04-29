@@ -30,3 +30,5 @@ config :phoenix, :generators,
 
 config :arc,
   bucket: "brnbw-drex"
+
+config :birdie, ecto_repos: [Birdie.Repo]
