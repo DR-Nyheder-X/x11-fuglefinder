@@ -3,43 +3,15 @@
 
 .HabitatList {
   padding: $spaceXs;
-
   .SectionLink:last-child { margin-bottom: $spaceXs; }
 }
 
 .HabitatList-guide {
   display: flex;
-  justify-content: center;
   align-items: center;
-
   margin-bottom: 9px;
   height: 44px;
-
-  background: $creamDark;
+  font-size: 19px;
+  text-transform: uppercase;
   color: $creamDarkest;
-
-  > span { position: relative; top: -.075em; }
-  @media ( min-device-width: 375px ) { height: 74px; font-size: $fontSizeM; }
-  @media ( min-device-width: 414px ) {
-    height: 101px;
-    flex-direction: column;
-    > span { top: 0; }
-  }
-}
-
-.HabitatList-guide svg {
-  display: none;
-
-  @media ( min-device-width: 375px ) {
-    display: inline-block;
-    width: 24px;
-    margin-right: 10px;
-  }
-
-  @media ( min-device-width: 414px ) {
-    width: 32px;
-    margin-right: 0;
-    position: relative;
-    bottom: -.1em;
-  }
 }

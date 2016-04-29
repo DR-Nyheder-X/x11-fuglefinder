@@ -6,19 +6,19 @@
   margin-bottom: 5px;
   height: 36px;
   border-radius: 2px;
-  font-size: $fontSize;
+  font-size: 19px;
+  font-family: $fontFamilySemibold;
   display: flex;
   align-items: center;
   padding-left: $spaceXs;
   position: relative;
   overflow: hidden;
-  background: $marine;
-  color: $cream;
-  &:active { background: $marineLight; }
+  background: $drMuddy;
+  color: $drBlue;
+  text-transform: uppercase;
 
   @media ( min-device-width: 375px ) {
     height: 46px;
-    font-size: $fontSizeM;
     padding-left: 16px;
     > span { position: relative; top: -.05em; }
   }
@@ -30,7 +30,6 @@
 span.SectionLink-arrow {
   display: block;
   width: 36px;
-  background-color: $marineDark;
   position: absolute;
   top: 0;
   right: 0;
@@ -42,60 +41,4 @@ span.SectionLink-arrow {
 
   @media ( min-device-width: 375px ) { width: 46px; }
   @media ( min-device-width: 414px ) { width: $headerHeight; }
-}
-
-.HabitatList-items {
-  .SectionLink:nth-child(2) {
-    background-color: $purple;
-    &:active { background: $purpleLight; }
-    span.SectionLink-arrow { background-color: $purpleDark; }
-    svg path { fill: $purpleLight; }
-  }
-
-  .SectionLink:nth-child(3) {
-    background-color: $magenta;
-    color: $marine;
-    &:active { background: $magentaLight; }
-    span.SectionLink-arrow { background-color: $magentaDark; }
-    svg path { fill: $magentaLight; }
-  }
-
-  .SectionLink:nth-child(4) {
-    background-color: $red;
-    color: $marine;
-    &:active { background: $redLight; }
-    span.SectionLink-arrow { background-color: $redDark; }
-    svg path { fill: $redLight; }
-  }
-
-  .SectionLink:nth-child(5) {
-    background-color: $yellow;
-    color: $marine;
-    &:active { background: $yellowLight; }
-    span.SectionLink-arrow { background-color: $yellowDark; }
-    svg path { fill: $yellowLight; }
-  }
-
-  .SectionLink:nth-child(6) {
-    background-color: $green;
-    color: $marine;
-    &:active { background: $greenLight; }
-    span.SectionLink-arrow { background-color: $greenDark; }
-    svg path { fill: $greenLight; }
-  }
-
-  .SectionLink:nth-child(7) {
-    background-color: $aqua;
-    color: $marine;
-    &:active { background: $aquaLight; }
-    span.SectionLink-arrow { background-color: $aquaDark; }
-    svg path { fill: $aquaLight; }
-  }
-
-  .SectionLink.SectionLink--all-birds {
-    background-color: $creamDark;
-    color: $creamDarkest;
-    span.SectionLink-arrow { background-color: $creamDarker; }
-    svg path { fill: $creamDarkest; }
-  }
 }
