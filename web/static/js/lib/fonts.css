@@ -1,15 +1,15 @@
 @font-face {
-  font-family: 'din round bold';
-  src: url('/fonts/din-round-bold.woff2') format('woff2'),
-       url('/fonts/din-round-bold.woff') format('woff');
+  font-family: 'gibson regular';
+  src: url('/fonts/gibson-regular.woff2') format('woff2'),
+       url('/fonts/gibson-regular.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'din round black';
-  src: url('/fonts/din-round-black.woff2') format('woff2'),
-       url('/fonts/din-round-black.woff') format('woff');
+  font-family: 'gibson semibold';
+  src: url('/fonts/gibson-semibold.woff2') format('woff2'),
+       url('/fonts/gibson-semibold.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
