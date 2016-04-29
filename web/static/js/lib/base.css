@@ -19,7 +19,7 @@ input {
 }
 
 html {
-  font-family: $fontFamilyBlack;
+  font-family: $fontFamilyRegular;
   font-weight: normal;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

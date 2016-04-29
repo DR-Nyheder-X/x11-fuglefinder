@@ -3,8 +3,10 @@ $fontSize: 15px;
 $fontSizeM: 20px;
 $fontSizeL: 22px;
 $fontColor: #304461;
-$fontFamilyBold: 'din round bold', sans-serif;
-$fontFamilyBlack: 'din round black', sans-serif;
+$fontFamilyBold: 'gibson regular', sans-serif;
+$fontFamilyBlack: 'gibson semibold', sans-serif;
+$fontFamilyRegular: $fontFamilyBold;
+$fontFamilySemibold: $fontFamilyBlack;
 
 /* Spaces */
 $spaceXs: 9px;
