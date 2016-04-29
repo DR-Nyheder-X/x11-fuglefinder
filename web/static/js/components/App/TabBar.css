@@ -23,29 +23,30 @@
   flex-flow: row nowrap;
   height: $headerHeight;
 
-  background: $creamDark;
+  background: $drMuddyDark;
 }
 
 .TabBarButton {
   @include blockyText;
-
+  font-family: $fontFamilySemibold;
   flex: 1 1 50%;
-
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-
-  color: $creamDarkest;
+  color: $drBlue;
 }
+
 
 /* Center line */
 .TabBarButton {
-  box-shadow: inset -1px 0 0 $creamDarker, inset 1px 0 0 $creamDarker;
+  box-shadow: inset -1px 0 0 $drMuddyDarker, inset 1px 0 0 $drMuddyDarker;
 }
-.TabBarButton:first-child  { box-shadow: inset -1px 0 0 $creamDarker; }
-.TabBarButton:last-child { box-shadow: inset 1px 0 0 $creamDarker; }
+.TabBarButton:first-child  { box-shadow: inset -1px 0 0 $drMuddyDarker; }
+.TabBarButton:last-child { box-shadow: inset 1px 0 0 $drMuddyDarker; }
+
+.TabBarButton svg path { fill: $drBlue; }
 
 /* Active states */
-.TabBarButton.active { color: $marine; }
-.TabBarButton.active svg path { fill: $marine; }
+.TabBarButton.active { color: #fff; }
+.TabBarButton.active svg path { fill: #fff; }

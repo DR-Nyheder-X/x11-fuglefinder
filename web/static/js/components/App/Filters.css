@@ -10,7 +10,7 @@ $searchFieldHeight: 43px;
 }
 
 .Filters-search {
-  background-color: $creamDark;
+  background-color: $drMuddy;
   border-radius: 2px;
   height: $searchFieldHeight;
   display: flex;
@@ -24,15 +24,15 @@ $searchFieldHeight: 43px;
 .Filters-search-field {
   height: $searchFieldHeight;
   border-radius: 0;
-  background-color: $creamDark;
+  background-color: $drMuddy;
   line-height: $searchFieldHeight;
   outline: 0;
   font-size: $fontSizeM;
   padding: 0 0 0 44px;
-  color: $marine;
+  color: $drBlue;
 
   &::placeholder {
-    color: $creamDarkest;
+    color: $drBlue;
   }
 }
 
@@ -42,7 +42,7 @@ $searchFieldHeight: 43px;
   top: 0;
   left: 0;
   height: $searchFieldHeight;
-  background-color: $creamDark;
+  background-color: $drMuddy;
   outline: 0;
   > svg { position: relative; top: .175em; }
 }
@@ -52,7 +52,7 @@ $searchFieldHeight: 43px;
   position: absolute;
   top: 0;
   right: 0;
-  background-color: $creamDark;
+  background-color: transparent;
   height: $searchFieldHeight;
   transform: translateX(42px);
   transition: transform .15s ease;
@@ -71,7 +71,7 @@ $searchFieldHeight: 43px;
 }
 
 .Filters-size-toggle {
-  background-color: $red;
+  background-color: $drMuddy;
   border: 0;
   width: 76px;
   height: $searchFieldHeight;
@@ -123,7 +123,7 @@ $searchFieldHeight: 43px;
   margin: 0;
   display: flex;
   padding: 8px;
-  background-color: $red;
+  background-color: $drMuddy;
   border-radius: 2px;
   display: none;
   position: relative;
@@ -139,7 +139,7 @@ $searchFieldHeight: 43px;
     display: block;
     height: 32px;
     line-height: 28px;
-    background-color: $cream;
+    background-color: #fff;
     border: 2px solid $marine;
   }
 
