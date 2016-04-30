@@ -62,11 +62,16 @@ $birdTileCompactHeight: 71px;
 }
 
 .BirdTileCompact--found {
-  .BirdTileCompact-inner { background-color: $aqua; }
+  .BirdTileCompact-inner { background-color: $drMuddyDark; }
   .BirdTileCompact-inner:after {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAAiCAMAAAAwC5qWAAAAz1BMVEUAAAAzzMwktrYzs7MnsbEttKUrqqoorqEjrqImraUlqqUkrKEirKIjraQiq6IirKMjq6Iiq6MhrKQjq6MjrKIhq6Mjq6EiqqIhq6IjqqEhqqIiq6Iiq6IiqqIiq6IiqqIhqqEhq6EiqqEiqqEhqqEiq6IiqqEiqqIiqqIhqqIhqqEiq6Ehq6IhqqEhq6Ihq6MhrKQhr6UisKcisagisakjr6cjsqgkvLIlvLMlvrUlwLYnxrsnxrwnxr0nx7wny78ozMEozsMo0MUpz8Mp0MUb9m2NAAAALXRSTlMABQcKDRESExYiMDE0O1JTWFtcXm56hYeSk6KkrbrCw8fX3OLn6erw8/b3+P5OUyvSAAABgElEQVR42qWW6XaCMBBGi9q67wuurVtV1ICIAgqKFN7/mVoBx4iM1ZP7L8N3zxlDyPiGEM/X2v3BeD4fD/rtWj7+9gKxQndBblh0C7En5SQ/JRFM+eQT8gc/Iwgz/v0/uzyB9FYzLMexDG0Lpe/yQzndg6R6dIGjCuVeGrer0Le4d2/Yi/ALqoic6JALK9MNYa7gYScRZWeGEBDBpnwRHg8z93ZFIAB0TrMngFAJyVyTXFEDwdYVSdocfoKlSkWaHG2nvgjFMWhXPi921/2nM5+pq50dEYp1YPurkwts6dQoe7FLAqHR/M5lSvf71wiNUPLtOrnF8LI6IQSaP3glIxSsn+3cMlS1vKwSrMTd6bTbeCUrFFzm/vQGCeF4WYkuSV7JCScbL+l2hI43T6GgzeNbR6HjW4e/OEC28ReHHxvARI/N40PrIZvYoQW4FvbJKLod8cm0OKYPlvG6YL+s2K9K9osaHxPry5hYQ2lSZh9S7CPyMbHi/YAuIgOa6e/BLw2LEz+KZDRIAAAAAElFTkSuQmCC);
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD4AAAAiCAMAAAAwC5qWAAAA21BMVEUAAAAAM2YASUkAM00AJ04ALUsAK0cAKEMALkYALUQAK0AAKkQAJ0AAK0EAKEEAKEEAKUAAJ0AAKkAAKUEAJ0EAKEEAKD8AKEAAKEEAKEAAJ0EAKEAAKD8AKD8AJz8AJ0AAKEAAJ0AAJ0AAJz8AKEAAJz8AJz8AJ0AAKEAAJz8AJ0AAJ0AAJz8AJz8EKkIGLEMLMUgRNUoeQVQmR1knSFouTl8vT2AzUmIzU2N2iZB9kJWImJyUoqW7w7+8xcG9xcG+xcLCycTZ29Tm5t3x8OXy8OXz8eX9+u3+++619AxMAAAALXRSTlMABQcKDRESExYiMDE0O1JTWFtcXm56hYeSk6KkrbrCw8fX3OLn6erw8/b3+P5OUyvSAAABh0lEQVR4AbXW+bKaMBQGcPHe9u6Li+KirYtVUT+KqCAoLmgp7/9EtcHEgMTqMP39mck3cwzJOaYE7t7ylUazMxh0mo1K/u0udYP0e22IkGHtPX1l+EHuIUZPfrgi/FXuQ6Avf/lXOtMFNbEc1/Ncx5qA+pG5GH6qgzLXPrM2QdWfxOkcq1td+iFLlf2CnCB8XwU13vgRmzGo6n1c+rkFSmVpLq+Caj2fp7MKGFY5bwlGyUbCUgkn5jGwtw1Nm29/+wETJyWJTz9+B+d45isdB4vT+YPz7THFvLTBmR7TIHY+MwGn/ULTnwp4VlC5zsWD+i3wlM8gXUCYQ/baAFjxW7LkIKzwN/06QphL9s4Q+LnY7RZzsuQibPR6iBcR4ZG9GjgaWfIQUbwp/us8LizeAMcQFi8+Oo4tPjrxh2P0vfjDia8NsxJfm4uXltBXokvLSOXYJzPTNMPexzyZspT8wSZvF8mbVeJWmaBRi8fElI6JKahu5v8OqQQjkkl/nA/oD+GATvD34A8DsRlnUL3mmgAAAABJRU5ErkJggg==);
     background-position: 0 3px;
   }
   .BirdTileCompact-image img { border: 1px solid $marine; }
-  .BirdTileCompact-header > a { color: $marineDark; }
+  .BirdTileCompact-header {
+    color: #fff;
+    font-family: $fontFamilySemibold;
+    padding-top: .7em;
+    margin-bottom: .5em;
+  }
 }
