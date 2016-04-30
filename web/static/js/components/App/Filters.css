@@ -44,6 +44,7 @@ $searchFieldHeight: 43px;
   height: $searchFieldHeight;
   background-color: $drMuddy;
   outline: 0;
+  border-radius: 2px;
   > svg { position: relative; top: .175em; }
 }
 

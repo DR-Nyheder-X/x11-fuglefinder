@@ -2,7 +2,7 @@
 @import '../../lib/mixins';
 
 .Rating {
-  background-color: $cream;
+  background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, .18);
   padding: 0 $spaceXs;
@@ -23,27 +23,27 @@
 }
 
 .Rating--1 .Rating-stars {
-  svg:nth-child(1) polygon { fill: $aquaDark; }
+  svg:nth-child(1) polygon { fill: $drBlue; }
 }
 
 .Rating--2 .Rating-stars {
   svg:nth-child(1) polygon,
-  svg:nth-child(2) polygon { fill: $magenta; }
+  svg:nth-child(2) polygon { fill: $drBlue; }
 }
 
 .Rating--3 .Rating-stars {
   svg:nth-child(1) polygon,
   svg:nth-child(2) polygon,
-  svg:nth-child(3) polygon { fill: $purple; }
+  svg:nth-child(3) polygon { fill: $drBlue; }
 }
 
 .Rating--4 .Rating-stars {
   svg:nth-child(1) polygon,
   svg:nth-child(2) polygon,
   svg:nth-child(3) polygon,
-  svg:nth-child(4) polygon { fill: $red; }
+  svg:nth-child(4) polygon { fill: $drBlue; }
 }
 
 .Rating--5 .Rating-stars {
-  svg polygon { fill: $marineDark; }
+  svg polygon { fill: $drBlue; }
 }
