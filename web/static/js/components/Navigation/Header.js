@@ -34,6 +34,9 @@ export default function Header ({ showBackButton, title, to, dispatch }) {
       </div>
     }
     <div className='Header-john'></div>
+    {!showBackButton &&
+      <div className='Header-drLogo'></div>
+    }
   </div>
 }
 
