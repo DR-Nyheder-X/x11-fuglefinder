@@ -13,6 +13,11 @@ defmodule Birdie.BirdControllerTest do
   }
   @invalid_attrs %{}
 
+  setup %{conn: conn} do
+    conn = conn |> as_admin
+    {:ok, %{conn: conn}}
+  end
+
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, admin_bird_path(conn, :index)
     assert html_response(conn, 200) =~ "Listing birds"

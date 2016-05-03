@@ -33,10 +33,15 @@ defmodule Birdie.ConnCase do
       def sign_in conn, user do
         put_req_header(conn, "authentication", "Bearer #{user.token}")
       end
+
+      defp as_admin(conn) do
+        header_content = "Basic " <> Base.encode64("birdie:tweettweet")
+        conn |> put_req_header("authorization", header_content)
+      end
     end
   end
 
-  setup tags do
+  setup(_tags) do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Birdie.Repo)
 
     {:ok, conn: Phoenix.ConnTest.conn()}

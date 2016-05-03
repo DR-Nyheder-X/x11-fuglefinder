@@ -4,6 +4,11 @@ defmodule Birdie.SightingControllerTest do
 
   alias Birdie.Sighting
 
+  setup %{conn: conn} do
+    conn = conn |> as_admin
+    {:ok, %{conn: conn}}
+  end
+
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, admin_sighting_path(conn, :index)
     assert html_response(conn, 200) =~ "Listing sightings"

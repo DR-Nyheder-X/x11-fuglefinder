@@ -5,6 +5,11 @@ defmodule Birdie.HabitatControllerTest do
   @valid_attrs %{name: "some content", slug: "sluggy"}
   @invalid_attrs %{}
 
+  setup %{conn: conn} do
+    conn = conn |> as_admin
+    {:ok, %{conn: conn}}
+  end
+
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, admin_habitat_path(conn, :index)
     assert html_response(conn, 200) =~ "Listing habitats"
