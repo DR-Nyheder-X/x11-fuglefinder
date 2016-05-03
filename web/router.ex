@@ -9,6 +9,11 @@ defmodule Birdie.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :auth do
+    plug BasicAuth, realm: "Admin",
+      username: "birdie", password: "tweettweet"
+  end
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -25,7 +30,7 @@ defmodule Birdie.Router do
   end
 
   scope "/admin", Birdie, as: "admin" do
-    pipe_through :browser
+    pipe_through [:browser, :auth]
 
     resources "/sightings", SightingController
     resources "/users", UserController
