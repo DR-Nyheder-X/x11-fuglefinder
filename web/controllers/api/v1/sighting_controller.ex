@@ -11,7 +11,7 @@ defmodule Birdie.Api.V1.SightingController do
 
     query = from s in Sighting,
       select: s,
-      limit: 1000,
+      limit: 10_000,
       where: not is_nil(s.lat) and not is_nil(s.lng),
       preload: [:bird],
       order_by: fragment("earth_distance(ll_to_earth(?, ?), ll_to_earth(?, ?))",
